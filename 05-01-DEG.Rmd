@@ -10,7 +10,7 @@ We will now use a web application called [Degust](https://degust.erc.monash.edu/
 
 We will be looking at data from the project [SRP062287](https://www.ncbi.nlm.nih.gov/Traces/study/?acc=SRP062287) in the Sequence Read Archive (SRA). Read counts can be found in [GSE71960](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE71960) in Gene Expression Omnibus (GEO), but in this workshop we have produced our own read counts. The data is associated with [this publication](https://doi.org/10.1210/me.2013-1164).
 
-Triple-negative breast cancer cell line MDA-MB-468 has been engineered to have an inducible ERβ estrogen receptor. This gene is expressed when treated with doxycycline ("plusdox"). Some samples are also be treated with estrogen E2. We expect interesting changes to happen when both this particular estrogen receptor and estrogen are present.
+Triple-negative breast cancer cell line MDA-MB-468 has been engineered to have an inducible ERβ estrogen receptor (encoded by the ESR2 gene). This gene is expressed when treated with doxycycline ("plusdox"). Some samples are also be treated with estrogen E2. We expect interesting changes to happen when both this particular estrogen receptor and estrogen are present.
 
 There are 12 samples in 4 conditions. "DMSO_nodox" is our control condition, and we have three further conditions with doxycycline, E2, and both. Samples were produced in three replications of the experiment.
 
@@ -35,7 +35,7 @@ These 12 read sets have been run through the nf-core/rnaseq pipeline using the [
 
 &rarr; [laxy.io output](https://laxy.io/#/job/3pLfQoLEuWeAnWh4H3Vvbv/?access_token=e0124ee9-c8ad-4164-b59f-ca2ae0ce4d2a)
 
-We will use `counts.star_featureCounts.tsv`. Download this file from Laxy (or save this [alternative download](https://raw.githubusercontent.com/MonashBioinformaticsPlatform/RNAseq_workshop_2024/refs/heads/main/files/counts.star_featureCounts.tsv)). 
+We will use `counts.star_featureCounts.tsv`. Download this file from Laxy (or save this [alternative download](https://raw.githubusercontent.com/MonashBioinformaticsPlatform/RNAseq_workshop/refs/heads/main/files/counts.star_featureCounts.tsv)). 
 
 Now go to [Degust](https://degust.erc.monash.edu/) and press the "Upload your counts file..." to upload the file. You should end up on a configuration screen.
 
@@ -211,7 +211,7 @@ Multi-Dimensional Scaling (MDS) provides a 2D layout of your samples, attempting
 
 (We call it an MDS plot rather than a PCA plot because it's based on the `plotMDS` function in the limma package. The limma version uses a slightly different distance calculation method by default.)
 
-Ideally the MDS layout will separate your samples into experimental groups. If your samples have a batch effect, this may also separate the samples along a different direction. If your samples are all jumbled together you will be sad, as you are unlikely to find many differentially expressed genes. You might also notice one or two outlier samples. You could consider excluding these samples from the analysis, ideally with additional justification based on the raw-read and alignment level QC explored earlier.
+Ideally the MDS layout will separate your samples into experimental groups. If your samples have a batch effect, this may also separate the samples along a different direction. If your groups are all jumbled together you will be sad, as you are unlikely to find many differentially expressed genes. You might also notice one or two outlier samples. You could consider excluding these samples from the analysis, ideally with additional justification based on the raw-read and alignment level QC explored earlier.
 
 The PCA is calculated on log2(CPM+moderation), where "moderation" is a constant you can adjust. The moderation reduces the amount of noise in genes with low counts. Also the PCA can be calculated on only the most variable genes ("Num genes"). Adjusting these parameters might clean up your MDS layout a little.
 
@@ -285,20 +285,20 @@ Also for the gene table:
 
 Configure your Degust page to account for the batch effect and add the interaction contrast.
 
-Explore the features we have demonstrated. Do you have observations or questions? Post interesting screenshots on the Slack channel.
+Explore the features we have demonstrated. Do you have observations or questions? Share any interesting screenshots.
 
 
 ## Going deeper
 
 ### Units and normalisation
 
-Different numbers of reads are obtained from different samples. Our assumption is that most genes are not differentially expressed, so the total "library size" of a sample can serve as a reference level against which to compare each gene. Counts Per Million (CPM) is therefore a convenient unit to compare the expression of a gene across different samples. You may also see CPM referred to as RPM (Reads Per Million). (Technical note: If a highly expressed gene increases in expression, it will look like all of the other genes decreased a little in terms of CPM. It is common to make adjustments to library sizes to account for this. Degust uses an adjustment called "TMM".)
+Different numbers of reads are obtained from different samples. Our assumption is that most genes are not differentially expressed, so the total "library size" of a sample can serve as a reference level against which to compare each gene. **Counts Per Million (CPM)** is therefore a convenient unit to compare the expression of a gene across different samples. You may also see CPM referred to as RPM (Reads Per Million). (Technical note: If a highly expressed gene increases in expression, it will look like all of the other genes decreased a little in terms of CPM. It is common to make adjustments to library sizes to account for this. Degust uses an adjustment called "TMM".)
 
-If you want to compare the expression levels of different genes there is a further concern. Some RNA-Seq protocols produce reads along the full length of each transcript, and more reads are obtained from longer transcripts. Accounting for transcript lengths, another unit called Transcripts Per Million (TPM) is sometimes used. You may also see mention of an earlier unit called FPKM or RPKM (Fragments/Reads Per Kilobase per Million).
+If you want to compare the expression levels of different genes there is a further concern. Some RNA-Seq protocols produce reads along the full length of each transcript, and more reads are obtained from longer transcripts. Accounting for transcript lengths, another unit called **Transcripts Per Million (TPM)** is sometimes used. You may also see mention of an earlier unit called FPKM or RPKM (Fragments/Reads Per Kilobase per Million).
 
 Other RNA-Seq protocols only produce reads at the 3' ends of RNA transcripts. In this case CPM and TPM are the same.
 
-These units are only for visualizing and reporting results. For differential expression analysis, the input is always raw counts. CPMs or TPMs are not raw counts and results will be meaningless if they are used with Degust.
+These units are only for visualizing and reporting results. **For differential expression analysis, the input is always raw counts. CPMs or TPMs are not raw counts and results will be meaningless if they are used with Degust.**
 
 To find TPMs in the Laxy output, in the output pane you would navigate to `output/results/star_salmon` and download `salmon.merged.gene_tpm.tsv` or `salmon.merged.transcript_tpm.tsv`.
 
@@ -309,9 +309,9 @@ To find TPMs in the Laxy output, in the output pane you would navigate to `outpu
 
 ### UMIs and counting
 
-Modern RNA-Seq protocol tag fragments with a Unique Molecular Identifier (UMI) before PCR amplification. This allows each original RNA fragment to be counted once, even if it is seen in multiple reads (or read pairs).
+Modern RNA-Seq protocols tag fragments with a **Unique Molecular Identifier (UMI)** before PCR amplification. This allows each original RNA fragment to be counted once, even if it is seen in multiple reads (or read pairs).
 
-**Absolute expression enthusiast says:** "I like UMI counting because my TPMs are not biassed due to PCR biasses."
+**Absolute expression enthusiast says:** "I like UMIs because my TPMs are no longer biassed due to PCR biasses."
 
 **Differential expression ethusiast says:** "PCR bias doesn't worry me. Each gene has the same bias in each sample, so it cancels out when I look at fold change. What I do like is that UMI counting removes an extra source of noise."
 
@@ -330,7 +330,7 @@ Even at the gene level, it is sometimes ambiguous where a read belongs. Salmon c
 
 **Differential expression enthusiast says:** "Genes are easiest to work with. Trying to estimate differential transcript-level counts is a hard inference task, I really have to know what I'm doing and I'll need deeper sequencing too. I do worry a little that differential transcript usage might look like differential gene expression if the transcripts of a gene have different lengths, but it hasn't been a problem in practice."
 
-"At the gene level," continues the differential expression enthusiast, becoming animated, "I did try using some TPM-abundance-based 'counts' the `nf-core/rnaseq` pipeline produced with this dataset, such as `salmon.merged.gene_counts_length_scaled.tsv`, and I noticed in the heatmap there were some extremely noisy genes. This artifactual large amount of noise in some genes can make the whole differential expression analysis worse, because it affects the 'Empirical Bayes' part of the analysis. Proper analysis might involve, for example, the `catchSalmon` function in `edgeR`, which makes use of bootstrap information provided by Salmon. This is not available in Degust."
+"At the gene level," continues the differential expression enthusiast, becoming animated, "I did try using some purported TPM-abundance-based counts that the `nf-core/rnaseq` pipeline produced with this dataset, such as `salmon.merged.gene_counts_length_scaled.tsv`, and I noticed in the heatmap there were some extremely noisy genes. This artifactual large amount of noise in some genes can make the whole differential expression analysis worse, because it affects the 'Empirical Bayes' part of the analysis. Proper analysis might involve, for example, the `catchSalmon` function in `edgeR`, which makes use of bootstrap information provided by Salmon. This is not available in Degust."
 
 
 ### Other methods
@@ -342,8 +342,6 @@ Besides the default voom/limma method, Degust offers a drop-down box of further 
 With the default voom/limma method, all samples are assumed to have the same quality. Recall that the residual variance is estimated from all samples, even if we are only comparing two conditions. Poor quality samples can therefore harm *all* of the comparisons we do.
 
 Voom with sample weights allows that there might be some samples with lower quality. It assigns each sample a weight, i.e. it allows that some samples may have more variation than others. If your data contains poor quality samples, but you don't want to exclude them, this method might be used.
-
-Exercise: Which of the QC plots can show us if there are poor quality samples?
 
 
 #### edgeR quasi-likelihood
@@ -387,8 +385,9 @@ Degust provides a convenient interface for analysing RNA-Seq data, but some larg
 * Long time series.
 * A mixture of biological and technical replication.
 * Sources of unwanted variation that are not fully known.
+* A design with a before-treatment and an after-treatment sample collected from a set of individuals, with the individuals split into groups that each receive different treatments. (This design is surprisingly common, and it is very non-obvious how to analyse effectively. Talk to us if you're doing this!)
 
-Experiments with these features can be analysed in R. Your first step is to understand the R way of specifying models and using models to perform statistical tests. We have some workshop material on this topic available here:
+Experiments with these features can be analysed in R. Your first step is to understand the R way of specifying linear models and using models to perform statistical tests. We have some workshop material on this topic available here:
 
 * ["Linear models in R"](https://monashdatafluency.github.io/r-linear/)
 
