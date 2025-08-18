@@ -126,8 +126,7 @@ knitr::include_graphics("images/experimental_design/exp-factors.png")
 
 
 ## Challenge - Design a RNA Seq experiment. {- .challenge}
-The project goal is to study the expression profiles of basal stem-cell (B) and luminal cells (L) in the mammary gland of virgin (vir), pregnant (preg) and lactating mice (lact). The data has already been mapped against the GRCm39 genome assembly.
-
+Investigate the expression profiles of basal stem cells (B) and luminal cells (L) in the mammary glands of virgin, pregnant, and lactating mice. All samples have been mapped to the GRCm39 genome assembly.
 1. The samples are as follows: 
       * Mm1_cgX_vir_B1
       * Mm2_cgX_vir_B2
