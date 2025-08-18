@@ -127,33 +127,44 @@ knitr::include_graphics("images/experimental_design/exp-factors.png")
 
 ## Challenge - Design a RNA Seq experiment. {- .challenge}
 Investigate the expression profiles of basal stem cells (B) and luminal cells (L) in the mammary glands of virgin, pregnant, and lactating mice. All samples have been mapped to the GRCm39 genome assembly.
-1. The samples are as follows: 
+1. Each sample is labeled with the following format: `Mm[MouseID]_cg[CageID]_[Condition]_[CellType][ReplicateNumber]`. The samples are as follows: 
       * Mm1_cgX_vir_B1
       * Mm2_cgX_vir_B2
       * Mm3_cgY_vir_B3
       * Mm1_cgX_vir_L1
       * Mm2_cgX_vir_L2
       * Mm3_cgY_vir_L3
+  
       * Mm4_cgX_preg_B1
       * Mm5_cgX_preg_B2
       * Mm6_cgY_preg_B3
       * Mm4_cgX_preg_L1
       * Mm5_cgX_preg_L2
       * Mm6_cgY_preg_L3
+  
       * Mm7_cgX_lact_B1
       * Mm8_cgX_lact_B2
       * Mm9_cgY_lact_B3
       * Mm7_cgX_lact_L1
       * Mm8_cgX_lact_L2
       * Mm9_cgY_lact_L3
-      
-- How many biological replicates are there in this experiment?
+  
+  Answer the following questions:  
 
-- How many experimental groups are there?
+- How many experimental groups are defined by the design?
 
-- The mice in the experiment were held in two separate cages(Mm_cgX, Mm_cgY). Is that a problem? Discuss.
+- How many biological replicates a) per group; b) across all groups; are there in this experiment?
+
+- How many technical replicates are there in this experiment?
 
 
 2. Create a sample sheet for the experimental design including all relevant factors that might affect the outcome.
+   
+3. Mice were housed in two separate cages: `cgX` and `cgY`. Discuss the following:
+
+   - Could cage assignment introduce a confounding variable?
+  
+   - How would you visualize the data to check for batch effects?
+
 
 
