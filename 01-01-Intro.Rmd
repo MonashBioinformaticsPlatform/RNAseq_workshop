@@ -1,4 +1,4 @@
-# Introduction
+# Workshop Introduction
 
 This workshop provides a complete, start-to-finish guide to designing, analyzing, and interpreting bulk RNA-seq experiments, using web-based tools with no coding required. Participants will learn how to plan experiments, process sequencing data, and run analysis pipelines entirely through accessible online platforms. Emphasis is placed on quality control and generating accurate differential expression results. By the end of the workshop, attendees will be equipped to make informed decisions and interpret RNA-seq data with confidence.
 
