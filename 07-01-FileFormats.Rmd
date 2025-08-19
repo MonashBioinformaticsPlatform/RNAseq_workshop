@@ -11,25 +11,25 @@ Where can you source reference genomes and annotation files:
 The top of an ensembl homo sapiens fasta file:
 
 ```{r, echo=FALSE, out.width="100%",}
-knitr::include_images("images/supplementary/chr_fasta_full_name.png")
+knitr::include_graphics("images/supplementary/chr_fasta_full_name.png")
 ```
 
 Fasta files will have a chromosome header line, indicated by the line starting with `>`. The header line will have the chromosome number and may contain some extra information. A minimal header can just have the chromosome number.
 
 ```{r, echo=FALSE, out.width="100%",}
-knitr::include_images("images/supplementary/chr_fasta.png")
+knitr::include_graphics("images/supplementary/chr_fasta.png")
 ```
 
 The lines following the header will contain that specific chromosome’s sequence
 
 ```{r, echo=FALSE, out.width="100%",}
-knitr::include_images("images/supplementary/fasta_seq.png")
+knitr::include_graphics("images/supplementary/fasta_seq.png")
 ```
 
 Annotation files are usually GTF or GFF3 format files. Below is a GTF file:
 
 ```{r, echo=FALSE, out.width="100%",}
-knitr::include_images("images/supplementary/gtf_file.png")
+knitr::include_graphics("images/supplementary/gtf_file.png")
 ```
 
 A gtf file is a 'tab separated file'  - this means that it is a file with columns indicated by tab spacing. A GTF file will always have 9 columns containing the following information (taken from here): 
