@@ -3,7 +3,7 @@
 
 ## What Is RNAseq
 
-RNAseq is a next generation sequencing technique for profiling all or selected target RNA molecules in a given biological system. It typically involves isolating RNA, converting to cDNA, ligating adapter sequences to the cDNA then amplifying by PCR to construct a library that can be used for sequencing. A diverse ecosystem of protocols and technology exist that can be used to generate RNAseq data, which can be used in a wide variety of applications. 
+RNAseq is a next generation sequencing technique for profiling all or selected target RNA molecules in a tissue from an organism. It typically involves isolating RNA, converting to cDNA, ligating adapter sequences to the cDNA then amplifying by PCR to construct a library that can be used for sequencing. A diverse ecosystem of protocols and technology exist that can be used to generate RNAseq data, which can be used in a wide variety of applications. 
 
 (ref:foo1) Overview of the steps in an RNAseq experiment. At each of these steps, there are choices that are made that can influence the final output of the experiment. Image source: [RNA Sequencing Data: Hitchhiker's Guide to Expression Analysis, 2019](https://www.annualreviews.org/content/journals/10.1146/annurev-biodatasci-072018-021255)
 
@@ -39,7 +39,18 @@ knitr::include_graphics("images/experimental_design/ngs_technology.png")
 
 There are many choices to be made in designing an experiment and it is easy to feel overwhelmed by these choices. Consulting with relevant experts such as sequencing providers and bioinformaticians prior to carrying out the experiment can aid in this process. It is also allows you to anticipate potential complexities that may arise in the analysis of the data and mitigate them. It might take several iterations and consultations to settle on a design that will achieve the most of your research outcomes. It's also important to have an idea of how the generated data can then be analysed - will you be able to analyse it yourself or will you need to get someone else to do it?
 
+A common question researchers often ask is whether to sequence more deeply or sequence more samples. More biological replicates will provide better estimates of variance and more precise measures of gene expression than sequencing to a greater depth. It is generally advised to sequence more samples rather than sequence deeply if the option is there as early studies showed that more replicates provided more statistical power to identify differentially expressed genes over sequencing to a greater depth.
 
+(ref:foo9) Biological replicates provide more statistical power to detect differential genes than sequencing depth. Image source: [Liu Y et al, RNA-seq differential expression studies: more sequence or more replication? Bioinformatics. 2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3904521/)
+
+
+```{r, echo=FALSE, fig.align="center", fig.cap="(ref:foo9) ", out.width="90%"}
+knitr::include_graphics("images/experimental_design/liu_y_bioinformatics_2014.jpg")
+```
+
+However, higher sequencing depth is necessary for detecting lowly expressed differentially expressed (DE) genes and for conducting isoform-level differential expression analysis. 
+
+The most common type of RNAseq experiment is using bulk short read sequencing for the purpose of identifying differentially expressed genes in a given tissue in an organism. This workshop has been designed with this understanding that this is the type of analysis that most researchers intend to perform but it is not the only application of RNAseq. The next section will give an overview of what is meant by short read bulk sequencing.
 
 
 ## RNAseq Sequencing Protocols
@@ -157,35 +168,6 @@ Short read sequencing typically refers to protocols that fragment RNA into small
 
 Long read sequencing typically refers to technology that produce reads with length ranging from 10-100kb or 100-300kb (ultra long read). Long read sequencing can capture the full length of mRNA transcripts, which is useful when examining changes in isoforms or when performing de novo transcriptome assembly. Capturing the full length of a read also that the PCR amplification can be skipped, reducing the coverage biases introduced by PCR. Long read sequencing has had lower read accuracy, high read length variability and lower throughput than short read methods but the technology has been improving over the past decade. Oxford Nanpore and PacBio are the leading long read sesquencing technologies.
 
-### Sequencing Depth & Coverage
-
-(ref:foo8) Sequencing Depth and Coverage. Image source: [sequencing depth vs coverage](https://3billion.io/blog/sequencing-depth-vs-coverage)
-
-```{r, echo=FALSE, fig.align="center", fig.cap="(ref:foo8)", out.width="90%"}
-knitr::include_graphics("images/experimental_design/fig_depth_coverage.jpeg")
-```
-
-
-
-These two terms are usually used interchangeably when describing the number of reads aligning to a reference genome but they do refer to slightly different concepts.
-
-Sequencing coverage refers to how much of the known genome has been sequenced. Do the sequenced reads align across all of the genome or only parts of it. Low coverage might suggest poor quality data as typically, the aim is to sequence the entire genome but some targeted protocols might only sequence a selected number of regions/genes. 
-
-The depth of an experiment is the number of times any given position in the genome is sequenced. For example if at nucleotide A, it has been sequenced 15 times, then nucleotide A has a depth of 15x. If nucleotide B has been sequenced 40 times, then it has 40x depth. This can be extended to the average depth across the genome - a sample sequenced to have an average 30 reads at across the genome can be referred to have depth of 30x. However, two sequenced samples of 30x depth might not be the same quality - the first might have a uniform distribution of reads across the genome while the second might have high depth in some locations while having gaps in other locations.
-
-
-A common dilemna researchers are often faced with is a choice as to whether to sequence more deeply or sequence more samples. More biological replicates will provide better estimates of variance and more precise measures of gene expression than sequencing to a greater depth. It is generally advised to sequence more samples rather than sequence deeply if the option is there as early studies showed that more replicates provided more statistical power to identify differentially expressed genes over sequencing to a greater depth.
-
-(ref:foo9) Biological replicates provide more statistical power to detect differential genes than sequencing depth. Image source: [Liu Y et al, RNA-seq differential expression studies: more sequence or more replication? Bioinformatics. 2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3904521/)
-
-
-```{r, echo=FALSE, fig.align="center", fig.cap="(ref:foo9) ", out.width="90%"}
-knitr::include_graphics("images/experimental_design/liu_y_bioinformatics_2014.jpg")
-```
-
-
-However, higher sequencing depth is necessary for detecting lowly expressed differentially expressed (DE) genes and for conducting isoform-level differential expression analysis. 
-
 
 ## What Can RNAseq Be Used For
 
@@ -202,7 +184,6 @@ knitr::include_graphics("images/experimental_design/rnaseq_data.png")
 
 The most common use is quantative analysis of gene expression changes to study gene regulation, though isoform level differential analysis can also be performed. RNAseq can be used for discovery, such as detection of novel transcripts, alternate splicing, exon skipping, intron retention or fusion genes. In organisms without a reference genome, RNAseq data can be used for de novo transcriptome assembly. 
 
-The most common type of RNAseq experiment is a short read bulk experiment for the purpose of identifying differentially expressed genes in a given tissue in an organism. This workshop has been designed with this understanding that this is the type of analysis that most researchers intend to perform but it is not the only application of RNAseq. The next section will give an overview of the types of RNAseq protocols available to illustrate the field but the rest of the workshop will predominantly focus on short read bulk RNAseq.
 
 (ref:foo10) Image source: [RNA-seq](https://helixio.com/page/rna-seq-1)
 
