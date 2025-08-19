@@ -1,7 +1,9 @@
-# Planning an RNAseq Experiment
+# Introduction to RNA Sequencing
 
 
-Broadly speaking, RNAseq is a next generation sequencing technique for profiling all or selected target RNA molecules in a given biological system. It typically involves isolating RNA, converting to cDNA, ligating adapter sequences to the cDNA then amplifying by PCR to construct a library that can be used for sequencing. A diverse ecosystem of protocols and technology exist that can be used to generate RNAseq data, which can be used in a wide variety of applications. 
+## What Is RNAseq
+
+RNAseq is a next generation sequencing technique for profiling all or selected target RNA molecules in a given biological system. It typically involves isolating RNA, converting to cDNA, ligating adapter sequences to the cDNA then amplifying by PCR to construct a library that can be used for sequencing. A diverse ecosystem of protocols and technology exist that can be used to generate RNAseq data, which can be used in a wide variety of applications. 
 
 (ref:foo1) Overview of the steps in an RNAseq experiment. At each of these steps, there are choices that are made that can influence the final output of the experiment. Image source: [RNA Sequencing Data: Hitchhiker's Guide to Expression Analysis, 2019](https://www.annualreviews.org/content/journals/10.1146/annurev-biodatasci-072018-021255)
 
@@ -10,7 +12,7 @@ Broadly speaking, RNAseq is a next generation sequencing technique for profiling
 knitr::include_graphics("images/experimental_design/overview_rnaseq.png")
 ```
 
-
+## Planning an RNAseq Experiment
 
 The first step of planning an RNAseq experiment is asking whether RNAseq will answer the intended research question and whether it should be performed. Sequencing experiments are not cheap and a lot of time and money can be saved by ensuring that the sequencing experiment performed is suited to answering the research question at hand. There is a huge diversity in what RNA-seq can achieve due to the number of different protocols that have been developed and published. Therefore having a clear experimental goal will help in selecting an appropriate protocol that will best answer the research question as well as a good experimental design that will allow you to get the statistical power to answer that question.
 
@@ -18,7 +20,7 @@ There are some main aspects to planning an RNAseq experiment:
 
 1. What is the research goal?
 2. What is the budget for the proposed experiment?
-3. What sequencing technology will be used - can the selected protocol answer the research question? Do you have access to this sequencing technology
+3. What sequencing technology will be used - can the selected protocol answer the research question? Do you have access to this sequencing technology?
 4. What is the experimental design - will the number of collected samples have enough statistical power to answer the research question? Are there confounding factors that might obscure the effect of biology that we want to study?
 5. What sort of analysis can be performed with the data that has been generated from the experiment? Are there already established analytical workflows or are you going to need to do some ad hoc analysis?
 
@@ -37,21 +39,7 @@ knitr::include_graphics("images/experimental_design/ngs_technology.png")
 
 There are many choices to be made in designing an experiment and it is easy to feel overwhelmed by these choices. Consulting with relevant experts such as sequencing providers and bioinformaticians prior to carrying out the experiment can aid in this process. It is also allows you to anticipate potential complexities that may arise in the analysis of the data and mitigate them. It might take several iterations and consultations to settle on a design that will achieve the most of your research outcomes. It's also important to have an idea of how the generated data can then be analysed - will you be able to analyse it yourself or will you need to get someone else to do it?
 
-RNAseq data can be used for a variety of purposes. Broadly speaking, it can be used in 2 different ways:
 
-- qualitatively: what is expressed? (e.g genes, isoforms, specific exons, intron retention, etc). RNAseq provides *annotation* information
-- quantatively: how much is expressed? Usually we want to know if the abundance of a gene has changed in response to a variable. RNAseq provides *expression* information.
-
-This capability for simultaneous discovery and quantification at the whole transcriptome level is a key reason that cemented RNAseq as the technology of choice for studying RNA. Previous technologies such as microarrays used probes based on already known genes. 
-
-```{r, fig.cap="", echo=FALSE, out.width="100%", fig.cap="RNAseq captures two layers of information: what is expressed and how much is expressed"}
-knitr::include_graphics("images/experimental_design/rnaseq_data.png")
-```
-
-The most common use is quantative analysis of gene expression changes to study gene regulation, though isoform level differential analysis can also be performed. RNAseq can be used for discovery, such as detection of novel transcripts, alternate splicing, exon skipping, intron retention or fusion genes. In organisms without a reference genome, RNAseq data can be used for de novo transcriptome assembly. 
-
-
-The most common type of RNAseq experiment is a short read bulk experiment for the purpose of identifying differentially expressed genes in a given organism. This workshop has been designed with this understanding that this is the type of analysis that most researchers intend to perform but it is not the only application of RNAseq. This chapter will give an overview of the types of RNAseq protocols available to illustrate the field but the rest of the workshop will predominantly focus on short read bulk RNAseq.
 
 
 ## RNAseq Sequencing Protocols
@@ -153,36 +141,6 @@ knitr::include_graphics("https://lizard.bio/hs-fs/hubfs/scs_blog1_table-1.png?wi
 ```
 
 
-### RNA Isolation Methods
-
-(ref:foo5) Different RNAseq isolation methods. Image source: [RNA Sequencing and Analysis (2015)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4863231/)
-
-```{r, echo=FALSE, out.width="100%", fig.cap=" (ref:foo5)"}
-knitr::include_graphics("https://cdn.ncbi.nlm.nih.gov/pmc/blobs/ef22/4863231/0cc69253abdf/nihms768779f1.jpg")
-```
-
-
-After RNA is initially extracted from a tissue, the RNA molecules are a mix of ribosomal RNA (rRNA), non-coding RNAs as well as messenger RNA (mRNA). The majority of RNA molecules are rRNA which are typically not of interest - a choice is then made on which RNA species are to be sequenced.
-
-
-(ref:foo6) Estimate of RNA levels in a typical mammalian cell. Image source: [Non-coding RNA: what is functional and what is junk? 2015](https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2015.00002/full)
-
-```{r, echo=FALSE, out.width="50%", fig.align = "center", fig.cap="(ref:foo6)"}
-knitr::include_graphics("images/experimental_design/rna_content.jpg")
-```
-
-
-There are a few common methods to isolate RNA:
-
-- Ribosomal depletion: this method removes rRNA, leaving the mRNA, precursor messenger RNA (pre-mRNA) and non-coding RNAs. This is used for whole transcriptome sequencing or total RNA sequencing: sequencing of all RNA molecules (rRNA exluded) and is useful studying for non-coding RNAs in addition to mRNA.
-
-- PolyA pulldown: this targets only RNA with a polyA tail - enriching for mRNAs. This is used for mRNA sequencing and is used when only the coding RNAs are of interest.
-
-- Size selection: this is typically used to enrich for small RNAs and therefore used for small RNAseq. These protocols are used when the goal is to study small RNAs, though some recent studies have suggested better performance from total RNAsequencing over small RNA enrichment protocols.
-
-### Targeted RNA sequencing
-
-Not every gene needs to be assayed in an RNAseq experiment. Targeted RNAseq allows researchers to focus on a subset of genes of interest. This can be done either with enrichment or amplicon methods and can be used with low quality samples. 
 
 ### Short & Long Read Sequencing
 
@@ -228,7 +186,23 @@ knitr::include_graphics("images/experimental_design/liu_y_bioinformatics_2014.jp
 
 However, higher sequencing depth is necessary for detecting lowly expressed differentially expressed (DE) genes and for conducting isoform-level differential expression analysis. 
 
-## RNAseq Uses
+
+## What Can RNAseq Be Used For
+
+RNAseq data can be used for a variety of purposes. Broadly speaking, it can be used in 2 different ways:
+
+- qualitatively: what is expressed? (e.g genes, isoforms, specific exons, intron retention, etc). RNAseq provides *annotation* information
+- quantatively: how much is expressed? Usually we want to know if the abundance of a gene has changed in response to a variable. RNAseq provides *expression* information. This is the most common use of RNAseq data.
+
+This capability for simultaneous discovery and quantification at the whole transcriptome level is a key reason that cemented RNAseq as the technology of choice for studying RNA. Previous technologies such as microarrays used pre-defined probes based on known genes thus limiting their ability to discover new genes. 
+
+```{r, fig.cap="", echo=FALSE, out.width="100%", fig.cap="RNAseq captures two layers of information: what is expressed and how much is expressed"}
+knitr::include_graphics("images/experimental_design/rnaseq_data.png")
+```
+
+The most common use is quantative analysis of gene expression changes to study gene regulation, though isoform level differential analysis can also be performed. RNAseq can be used for discovery, such as detection of novel transcripts, alternate splicing, exon skipping, intron retention or fusion genes. In organisms without a reference genome, RNAseq data can be used for de novo transcriptome assembly. 
+
+The most common type of RNAseq experiment is a short read bulk experiment for the purpose of identifying differentially expressed genes in a given tissue in an organism. This workshop has been designed with this understanding that this is the type of analysis that most researchers intend to perform but it is not the only application of RNAseq. The next section will give an overview of the types of RNAseq protocols available to illustrate the field but the rest of the workshop will predominantly focus on short read bulk RNAseq.
 
 (ref:foo10) Image source: [RNA-seq](https://helixio.com/page/rna-seq-1)
 
@@ -236,12 +210,9 @@ However, higher sequencing depth is necessary for detecting lowly expressed diff
 knitr::include_graphics("images/experimental_design/fig_rnaseq_uses_helixio.jpg")
 ```
 
+Uses of RNAseq data:
 
-
-
-The most common use for RNAseq is to identify differentially expressed genes in a tissue of interest for a given organism. There are other applications RNA-seq that we will briefly discuss, this list is not an exhaustive one.
-
-- Differential expression analysis: DGE, DTE, DTU
+- Differential expression analysis: differential gene expresssion (DGE), Differential Transcript Expression (DTE), Differential Transcript Usage (DTU)
 - Novel transcript/isoform discovery: identify new transcripts/isoforms that are not annotated in a reference
 - De novo transcriptome assembly: if a reference genome for an organism is not available, the information from RNAseq reads can be assembled into contigs to form a transcriptome for protein coding genes
 - Detect alternate splicing/differential isoform usage, detect changes in isoform abundance
@@ -304,34 +275,18 @@ knitr::include_graphics("images/experimental_design/fig_f1000research-8-19594-g0
 
 If interested in transcript changes, the complexity of the analyses can be determined by the choice of short or long read sequencing. While short read sequencing can be used for both, there is additional complexity when used for transcript level analysis as many reads will map ambigiously for transcripts. There are methods that have been developed for probabilistically assigning reads to transcripts.
 
-(ref:foo15) Image source: [RNA Sequencing Data: Hitchhiker's Guide to Expression Analysis, 2019](https://www.annualreviews.org/content/journals/10.1146/annurev-biodatasci-072018-021255)
+(ref:foo15) Image source: [Improving gene isoform quantification with miniQuant, 2025](https://www.nature.com/articles/s41587-025-02633-9)
 
 ```{r, echo=FALSE, out.width="100%",fig.cap='(ref:foo15)'}
-knitr::include_graphics("images/experimental_design/genome_transcriptome_alignment.png")
+knitr::include_graphics("images/experimental_design/fig_41587_2025_2633_Fig1_HTML.png")
 ```
 
-
-Long read sequencing might be more suited for isoform/transcript level analyses as there is less or no ambiguity to which isofrom a read comes from, if the entire transcript has been sequenced. 
-
-
-### Novel Transcript/Isoform Discovery
-
-Most RNAseq datasets are used for quantative analysis - the data is aligned to a pre-existing reference genome and pre-existing annotations. In well annotated organisms or tissues, there usually isn't much concern that some genes might be going undetected and therefore ignored in the subsequent analysis. However, non-model organisms or tissues that have been less studied, the annotations can be incomplete or non-existent. In such cases, the RNAseq data can be leveraged to simultaneously provide information on the gene annotation as well the quantative changes in expression. 
-
-It is possible to leverage the sequences of the reads to assemble into transcripts (or if using long read sequencing, to sequence the full transcript and no assembly is then required). This can enable discovery of new genes/transcripts that are not known in a reference database.
-
-(ref:foo16) Image source: [RNA sequencing, PacBio](https://www.pacb.com/products-and-services/applications/rna-sequencing/)
-
-```{r, echo=FALSE, out.width="100%",fig.cap='(ref:foo16)'}
-knitr::include_graphics("https://www.pacb.com/wp-content/uploads/img_isoform_discovery-1.svg")
-```
-
-
+Long read sequencing can be more suited for isoform/transcript level analyses than short read sequencing as there is less or no ambiguity to which isofrom a read comes from, if the entire transcript has been sequenced. 
 
 
 ### Transcriptome Assembly
 
-When a reference genome is either unavailable or not desired, it is possible to take RNAseq reads and assemble them into a transcriptome of the assayed genes. The assembly can be done in 2 ways, there are reference based methods and de novo methods. Reference based methods use the reference of either the organism or a closely related species. 
+Most RNAseq datasets are used for quantative analysis - the data is aligned to a pre-existing reference genome and pre-existing annotations. However, these resources do not exist for every organism. When a reference genome is either unavailable or not desired, it is possible to take RNAseq reads and assemble them into a transcriptome of the assayed organism. The assembly can be done in 2 ways, there are reference based methods and de novo methods. Reference based methods use the reference of either the organism or a closely related species. 
 
 De novo assembly methods are reference free - this is useful when studying non-model organisms as often they lack well annotated reference genomes. In such situations, RNAseq data has a dual purpose - the reference is built from the sequences of the reads and then the reads are counted against the transcriptome for differential analysis.  
 
@@ -346,21 +301,22 @@ knitr::include_graphics("images/experimental_design/fig_assembly_m_bbab563f3.jpe
 
 
 
-### Gene Fusion Detection
+### Novel Transcript/Isoform Discovery + Gene Fusion Detection
 
-RNAseq can have clinical applications. One such application is the detection of fusion genes - these can arise due to chromosomal rearrangements combining the coding regions of two genes. These genes can produce aberrant proteins and lead to cancer development if the fused genes are oncogenes or tumor suppresor genes. Therefore, detection of fusion genes can be an important diagnostic tool in clinical settings as well as for cancer research.
+In well annotated organisms or tissues, there usually isn't much concern that some genes might be going undetected and therefore ignored in the subsequent analysis. However, non-model organisms or tissues that have been less studied, the annotations can be incomplete or non-existent. In such cases, the RNAseq data can be leveraged to simultaneously provide information on the gene annotation as well the quantative changes in expression. 
 
+It is possible to leverage the sequences of the reads to assemble into transcripts (or if using long read sequencing, to sequence the full transcript and no assembly is then required). This can enable discovery of new genes/transcripts that are not known in a reference database.
 
+(ref:foo16) Image source: [RNA sequencing, PacBio](https://www.pacb.com/products-and-services/applications/rna-sequencing/)
 
-(ref:foo18) Image source [GFusion: an Effective Algorithm to Identify Fusion Genes from Cancer RNA-Seq Data, 2017](https://www.nature.com/articles/s41598-017-07070-6)
-
-```{r, echo=FALSE, out.width="90%", fig.cap= '(ref:foo18)'}
-knitr::include_graphics("https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41598-017-07070-6/MediaObjects/41598_2017_7070_Fig2_HTML.jpg?as=webp")
+```{r, echo=FALSE, out.width="100%",fig.cap='(ref:foo16)'}
+knitr::include_graphics("https://www.pacb.com/wp-content/uploads/img_isoform_discovery-1.svg")
 ```
 
+This also has clinical applications. One such application is the detection of fusion genes - these can arise due to chromosomal rearrangements combining the coding regions of two genes. These genes can produce aberrant proteins and lead to cancer development if the fused genes are oncogenes or tumor suppresor genes. Therefore, detection of fusion genes can be an important diagnostic tool in clinical settings as well as for cancer research.
 
 
-### 'Omics Integration
+### Multiomics Integration
 
 RNAseq data can be combined with other types of genome wide to provide deeper insights into gene regulation and molecular function. Combining with epigenetic data such as ChIPseq and ATACseq can be used to examine gene regulatory networks in a tissue of interest. There are tools that can take chromatin data and trancriptomic data to classify transcription factor activity as either activating and repressive on target genes. DNA methylation and histone modifications can also be correlated with gene expression data .
 
@@ -376,7 +332,8 @@ RNAseq data combined with DNA sequencing data enables the link between genotype 
 
 Multiomic integration analyses tend to be complex and are rarely straightforward. Depending on the type of data being integrated, little or not correlation might be found between the two data types. Proteomic data for example generally has low correlation with RNAseq data.
 
-### Discussion: Design A Bulk RNAseq Experiment {- .challenge}
+
+### Optional Discussion: Design A Bulk RNAseq Experiment {- .challenge}
 
 You want to examine the impact of several different growth conditions in a specific bacterial strain and your interest is mostly in changes to gene expression. A side goal of your project is to look at small RNA changes. Assuming you have no limitations on your budget, what are some considerations you'd have in designing a potential RNAseq experiment for this project?
 
