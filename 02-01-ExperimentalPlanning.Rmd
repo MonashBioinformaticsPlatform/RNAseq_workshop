@@ -180,12 +180,11 @@ RNAseq data can be used for a variety of purposes. Broadly speaking, it can be u
 
 This capability for simultaneous discovery and quantification at the whole transcriptome level is a key reason that cemented RNAseq as the technology of choice for studying RNA. Previous technologies such as microarrays used pre-defined probes based on known genes thus limiting their ability to discover new genes. 
 
+The most common use is quantative analysis of gene expression changes to study gene regulation, though isoform level differential analysis can also be performed. RNAseq can be used for discovery, such as detection of novel transcripts, alternate splicing, exon skipping, intron retention or fusion genes. In organisms without a reference genome, RNAseq data can be used for de novo transcriptome assembly. 
+
 ```{r, echo=FALSE, out.width="100%", fig.cap="RNAseq captures two layers of information: what is expressed and how much is expressed"}
 knitr::include_graphics("images/experimental_design/rnaseq_data.png")
 ```
-
-The most common use is quantative analysis of gene expression changes to study gene regulation, though isoform level differential analysis can also be performed. RNAseq can be used for discovery, such as detection of novel transcripts, alternate splicing, exon skipping, intron retention or fusion genes. In organisms without a reference genome, RNAseq data can be used for de novo transcriptome assembly. 
-
 
 (ref:foo10) Image source: [RNA-seq](https://helixio.com/page/rna-seq-1)
 
@@ -298,21 +297,6 @@ knitr::include_graphics("https://www.pacb.com/wp-content/uploads/img_isoform_dis
 This also has clinical applications. One such application is the detection of fusion genes - these can arise due to chromosomal rearrangements combining the coding regions of two genes. These genes can produce aberrant proteins and lead to cancer development if the fused genes are oncogenes or tumor suppresor genes. Therefore, detection of fusion genes can be an important diagnostic tool in clinical settings as well as for cancer research.
 
 
-### Multiomics Integration
-
-RNAseq data can be combined with other types of genome wide to provide deeper insights into gene regulation and molecular function. Combining with epigenetic data such as ChIPseq and ATACseq can be used to examine gene regulatory networks in a tissue of interest. There are tools that can take chromatin data and trancriptomic data to classify transcription factor activity as either activating and repressive on target genes. DNA methylation and histone modifications can also be correlated with gene expression data .
-
-(ref:foo19) Image source: [Computational tools for inferring transcription factor activity, 2023](https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/10.1002/pmic.202200462)
-
-```{r, echo=FALSE, out.width="100%", fig.cap="Overview of the general setup of computational tools to infer transcription factor activity (TFA). (ref:foo19) "}
-knitr::include_graphics("https://analyticalsciencejournals.onlinelibrary.wiley.com/cms/asset/a6a72698-33cf-451f-8056-dc632e6b23b5/pmic13741-fig-0002-m.png")
-```
-
-
-
-RNAseq data combined with DNA sequencing data enables the link between genotype and gene expression to be studied. Genetic variation has been shown to affect the expression of genes. Identification of single nucleotide polymorphism (SNPs) or structural variants (SV) from the genomic data can be used with the RNAseq data to identify expression quantitative trait loci (eQTLs) - genetic loci that explain variation in mRNA levels. 
-
-Multiomic integration analyses tend to be complex and are rarely straightforward. Depending on the type of data being integrated, little or not correlation might be found between the two data types. Proteomic data for example generally has low correlation with RNAseq data.
 
 
 ### Optional Discussion: Design A Bulk RNAseq Experiment {- .challenge}
