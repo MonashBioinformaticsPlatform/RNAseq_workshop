@@ -30,15 +30,6 @@ Having a clear research goal guides subsequent choices in terms of the type of R
 knitr::include_graphics("images/experimental_design/expectations_reality.jpg")
 ```
 
-There is no single RNAseq technology that is optimised for answering every research question - instead they may have different advantages, disadvantages and biases that can make one protocol better suited for a particular task over another.
-
-```{r, echo=FALSE, out.width="90%", eval=TRUE, fig.cap="There are many flavours of next generation sequencing machines that are available, with different chemistries and different sequencing methods."}
-knitr::include_graphics("images/experimental_design/ngs_technology.png")
-```
-
-
-There are many choices to be made in designing an experiment and it is easy to feel overwhelmed by these choices. Consulting with relevant experts such as sequencing providers and bioinformaticians prior to carrying out the experiment can aid in this process. It is also allows you to anticipate potential complexities that may arise in the analysis of the data and mitigate them. It might take several iterations and consultations to settle on a design that will achieve the most of your research outcomes. It's also important to have an idea of how the generated data can then be analysed - will you be able to analyse it yourself or will you need to get someone else to do it?
-
 A common question researchers often ask is whether to sequence more deeply or sequence more samples. More biological replicates will provide better estimates of variance and more precise measures of gene expression than sequencing to a greater depth. It is generally advised to sequence more samples rather than sequence deeply if the option is there as early studies showed that more replicates provided more statistical power to identify differentially expressed genes over sequencing to a greater depth.
 
 (ref:foo9) Biological replicates provide more statistical power to detect differential genes than sequencing depth. Image source: [Liu Y et al, RNA-seq differential expression studies: more sequence or more replication? Bioinformatics. 2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3904521/)
@@ -49,6 +40,17 @@ knitr::include_graphics("images/experimental_design/liu_y_bioinformatics_2014.jp
 ```
 
 However, higher sequencing depth is necessary for detecting lowly expressed differentially expressed (DE) genes and for conducting isoform-level differential expression analysis. 
+
+
+There is no single RNAseq technology that is optimised for answering every research question - instead they may have different advantages, disadvantages and biases that can make one protocol better suited for a particular task over another.
+
+```{r, echo=FALSE, out.width="90%", eval=TRUE, fig.cap="There are many flavours of next generation sequencing machines that are available, with different chemistries and different sequencing methods."}
+knitr::include_graphics("images/experimental_design/ngs_technology.png")
+```
+
+
+There are many choices to be made in designing an experiment and it is easy to feel overwhelmed by these choices. Consulting with relevant experts such as sequencing providers and bioinformaticians prior to carrying out the experiment can aid in this process. It is also allows you to anticipate potential complexities that may arise in the analysis of the data and mitigate them. It might take several iterations and consultations to settle on a design that will achieve the most of your research outcomes. It's also important to have an idea of how the generated data can then be analysed - will you be able to analyse it yourself or will you need to get someone else to do it?
+
 
 The most common type of RNAseq experiment is using bulk short read sequencing for the purpose of identifying differentially expressed genes in a given tissue in an organism. This workshop has been designed with this understanding that this is the type of analysis that most researchers intend to perform but it is not the only application of RNAseq. The next section will give an overview of what is meant by short read bulk sequencing.
 
