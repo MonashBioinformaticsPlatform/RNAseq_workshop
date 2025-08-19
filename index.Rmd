@@ -17,40 +17,32 @@ github-repo: https://github.com/MonashBioinformaticsPlatform/RNAseq_workshop_202
 # Getting started  
 
     
-- **[All communications and important links will be in this Drive Document](https://docs.google.com/document/d/1jykhTx23IHoTJvu6rCcs6_cuPznlMLYQZqih_C2-kfs/edit)**
+- **[All communications and important links will be in this Drive Document](https://docs.google.com/document/d/1qNgOxzwidhIzHRZMx_iJVGjL0kVqW9ru4wAlBJjhViY/edit?usp=sharing)**
 
 
-- **Instructors:** Adele Barugahare, Nitika Kandhari, Scott Coutts, Andrew Perry, Paul Harrison, Laura Perlaza-Jimenez
+- **Instructors:** Adele Barugahare, Nitika Kandhari, Natasha Ng, Andrew Perry, Paul Harrison, Laura Perlaza-Jimenez, Giulia Iacono
 
 
 ## Schedule
 
-This workshop is 2 sessions long, each 4 hours
+This workshop is 1 full day. 
 
 **First Day**
 
 |  Time       |  Content                  |
 |:---:|:---:|
-| 10:00 | Getting started and introduction |
-| 10:10 | Planning an RNAseq Experiment |
-| 11:00 | Experimental Design |
-| 11:20 | 00:10 Break |
-| 11:30 | Library Preparation |
-| 12:40 | 00:20 Lunch Break |
+| 09:00 | Getting started and introduction |
+| 09:10 | Planning an RNAseq Experiment |
+| 09:30 | Experimental Design |
+| 10:00 | Break (10 mins) |
+| 10:10 | Library Preparation |
+| 11:10 | Pipeline Overview |
+| 12:30 | Lunch Break (30 mins) |
 | 13:00 | Pipeline Overview |
-| 14:00 | End of first session |
-
-**Second Day**
-
-|  Time       |  Content                  |
-|:---:|:---:|
-| 10:00 | Pipeline Overview |
-| 11:20 | 00:10 Break |
-| 11:30 | Pipeline Overview |
-| 12:00 | Differential Expression |
-| 12:40 | 00:20 Lunch Break |
-| 13:00 | Differential Expression |
-| 14:00 | End of second session |
+| 13:30 | Differential Expression |
+| 14:30 | Break (10 mins) |
+| 14:40 | Differential Expression |
+| 15:50 | End remarks |
 
 
 ## Summary
