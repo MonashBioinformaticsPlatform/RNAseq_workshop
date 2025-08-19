@@ -10,7 +10,7 @@ bibliography: [book.bib, packages.bib]
 description: |
   RNAseq analysis overview and interpretation
 link-citations: yes
-github-repo: https://github.com/MonashBioinformaticsPlatform/RNAseq_workshop_2024
+github-repo: https://github.com/MonashBioinformaticsPlatform/RNAseq_workshop
 ---
 ***
 
