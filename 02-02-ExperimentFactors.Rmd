@@ -63,13 +63,15 @@ Technical replicates help assess the consistency of the sequencing process and r
 
 ## ![](images/experimental_design/warning_symbol.svg){width=30px} Sample pooling   ![](images/experimental_design/warning_symbol.svg){width=30px} {- .caution} 
 
-Sample pooling in RNA-Seq is commonly used by experimental biologists to reduce costs and increase throughput, particularly when RNA input is low. While pooling offers practical benefits, it also introduces potential pitfalls that can negatively affect data quality and the conclusions drawn from the experiment. Some of the key challenges include:
+Sample pooling in RNA-Seq is used by experimental biologists to reduce costs and increase throughput, particularly when RNA input is low. While pooling offers practical benefits, it also introduces pitfalls that can negatively affect data quality and the conclusions drawn from the experiment. Some of the key challenges include [(Rajkumar, A.P. et al 2015)](https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-015-1767-y):
 
-* **Loss of Individual Sample Resolution** - If cell barcodes are absent or compromised, making it impossible to distinguish between individual contributions.
-* **Increased Variability and Reduced Sensitivity** - Pooling RNA from heterogeneous sources can mask biological differences and increase variability, reducing the sensitivity needed to detect subtle changes in gene expression.
-* **Unequal Sample Representation** - If unequal amounts of RNA are pooled from each sample, it can result in disproportionate representation, potentially skewing the data and leading to misleading interpretations.
-* **Batch Effects** - If different pools of samples are processed, prepared, or sequenced in separate batches, batch effects can arise, confounding the biological signal and complicating data analysis. It is impossible to correct for batch effect if the barcodes are absent or compromised.
-* **Data normalization** - Samples with varying RNA quality, quantities, or levels of degradation may contribute unevenly to the pool, complicating normalization and affecting downstream analysis.
+* Pooling collapses multiple biological samples into one. The ability to estimate biological variability is lost, which is essential for differential expression analysis. This may result in high false positivity rate to detect DEGs.
+* Pooling decreases the statistical power and ability to estimate within population variation.
+* Pooling averages out differences between samples, which can mask important biological signals.
+* If unequal amounts of RNA are pooled from each sample, it can result in disproportionate representation, potentially skewing the data.
+* If there is an outlier among pooled samples, it can skew the average expression values and introduce bias. 
+* If different pools of samples are processed, prepared, or sequenced in separate batches, batch effects can arise, confounding the biological signal and complicating data analysis. It is impossible to correct for batch effect if the barcodes are absent or compromised.
+* Samples with varying RNA quality, quantities, or levels of degradation may contribute unevenly to the pool, complicating normalization and affecting downstream analysis.
 
 *We strongly advise discussing your pooling strategy with a bioinformatician before proceeding, as these challenges can significantly impact the success of your experiment and its analysis.*
 
@@ -100,13 +102,13 @@ knitr::include_graphics("images/experimental_design/confounding.png")
 
 However, it is not always possible to mix the mice due to the design of the experiment. When comparing diseased vs. healthy mice that are kept in different cages by design, you risk confounding the biological condition (disease vs. healthy) with cage-specific effects, such as environmental differences (e.g., diet, microflora, stress levels) that can affect gene expression independently of the disease. To mitigate this potential confounding factor, you can take several measures to ensure that cage effects do not bias the results.
 
-1. **Use Multiple Cages per Group (Biological Replicates) and account for Cage as a Random Effect:** Make sure to keep both the diseased and healthy groups housed in multiple cages, with several biological replicates (mice) per condition distributed across different cages. For example, keep 2-3 diseased mice per cage across 3-4 cages and do the same for healthy mice. This helps distribute cage-specific environmental factors. This way, the variation between cages can be treated as a random effect in the statistical analysis. By doing this, we can separate out any variance caused by cage differences from the variance caused by the condition itself, allowing for more accurate comparisons of gene expression between conditions. This can be done byusing mixed-effects models (e.g., linear mixed models) where the cage is treated as a random effect and the condition (disease vs. healthy) is a fixed effect. This helps isolate the influence of disease vs. healthy status from any systematic cage-related bias.
+1. **Use Multiple Cages per Group (Biological Replicates) and account for Cage as a Random Effect:** Make sure to keep both the diseased and healthy groups housed in multiple cages, with several biological replicates (mice) per condition distributed across different cages. For example, keep 2-3 diseased mice per cage across 3-4 cages and do the same for healthy mice. This helps distribute cage-specific environmental factors.
+
+This way, the variation between cages can be treated as a random effect in the statistical analysis. By doing this, we can separate out any variance caused by cage differences from the variance caused by the condition itself, allowing for more accurate comparisons of gene expression between conditions. This can be done by using mixed-effects models (e.g., linear mixed models) where tthe cage is treated as a random effect and the condition (disease vs. healthy) is a fixed effect. This helps isolate the influence of disease vs. healthy status from any systematic cage-related bias. But this is beyond the scope of this workshop.
    
-2. **Pooling Samples Across Cages:** If possible, pool RNA samples from mice in different cages within the same condition (e.g., pool RNA from multiple diseased mice housed in different cages) to reduce the potential influence of cage-specific effects. This reduces the impact of cage-related variation by averaging out environmental differences across multiple cages. However, this approach may reduce the ability to detect individual-level variation, unless samples are hash-tagged.
+2. **Rotate or Randomly Assign Mice to Cages:** If feasible,randomise the assignment of mice, i.e., randomly assign mice to cages or rotate them between cages during the experiment to avoid any systematic differences between cages that could lead to confounding.
 
-3. **Rotate or Randomly Assign Mice to Cages:** If feasible,randomise the assignment of mice, i.e., randomly assign mice to cages or rotate them between cages during the experiment to avoid any systematic differences between cages that could lead to confounding.
-
-4. **Collect Environmental Data from Each Cage:** Measure and monitor environmental factors in each cage, such as temperature, humidity, air quality, food consumption, and microbial flora. These factors can influence gene expression and may vary between cages. This allows you to assess whether any specific environmental variables correlate with gene expression differences. If necessary, these environmental factors can be included as covariates in the statistical analysis.
+In case of a big experiment with multiple cages, measuring and monitoring environmental factors in each cage, such as temperature, humidity, air quality, food consumption, and microbial flora will help assess whether any specific environmental variables correlate with gene expression differences. If necessary, these environmental factors can be included as covariates in the statistical analysis.
 
 
 ## Summary
