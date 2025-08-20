@@ -278,7 +278,9 @@ Assembling a transcriptome can be done in 2 ways, there are reference based meth
 
 De novo assembly methods are reference free - this is useful when studying non-model organisms as often they lack well annotated reference genomes.
 
-Long read sequencing is better suited to building high quality transcriptomes than short read sequencing as the longer read length retains more information and context about the original RNA molecule. A commonly used analogy when describing assembly is to imagine the genome/transcriptome as a puzzle that needs to be put back together. The smaller the pieces, the more difficult the puzzle. A puzzle made of larger pieces is much easier to put back together and reconstruct the original RNA sequence. 
+A combination of long read sequencing & short read sequencing is best suited to building high quality transcriptomes than either alone. Short read sequencing has high accuracy and fewer errors while the longer read length retains more information and context about the original RNA molecule. 
+
+A commonly used analogy when describing assembly is to imagine the genome/transcriptome as a puzzle that needs to be put back together. The smaller the pieces, the more difficult the puzzle. A puzzle made of larger pieces is much easier to put back together and reconstruct the original RNA sequence. 
 
 (ref:foo17) Strategies for reconstructing transcripts from RNA-Seq reads. Image source: [Advancing RNAseq Analysis (2010)](https://www.nature.com/articles/nbt0510-421)
 
