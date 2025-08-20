@@ -36,6 +36,15 @@ Usually we quantify expression per gene (the sum of all transcripts arising from
 ![nf-core/rnaseq metromap](images/pipeline/nf-core_rnaseq.png){width="100%"}
 </a>
 
+### Laxy demo {- .challenge}
+
+We often run the [nf-core/rnaseq](https://nf-co.re/rnaseq) pipeline via the [Laxy](https://laxy.io) web interface, developed within the Platform.
+
+Don't start your own run right now ! I'll work through a demo - you can try yourself later.
+
+###  {-}
+
+<!--
 ### Pipeline activity
 
 #### **Challenge:** Create your own fantasy RNA-seq processing pipeline {- .challenge}
@@ -48,4 +57,4 @@ Compose a set of tools in an order that might make an RNA-seq pipeline.
 ####  {-}
 
 <iframe src="files/fantasy-rnaseq-pipeline-builder.html" width="660" height="750" frameborder="0" scrolling="no"></iframe>
-
+-->
