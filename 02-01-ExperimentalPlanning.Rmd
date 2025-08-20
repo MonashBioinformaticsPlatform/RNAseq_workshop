@@ -15,11 +15,13 @@ knitr::include_graphics("images/experimental_design/overview_rnaseq.png")
 
 A sequencing machine generates a readout of the nucleotides that make up the original RNA molecule, usually by using uniquely labelled flourescent nucleotides. Every time one of these nucleotides are added to a strand of DNA, they emit a different colored light which is captured by the sequencing machine.
 
-```{r, echo=FALSE, out.width="90%", fig.cap="(ref:foo1)"}
+
+(ref:foo2) Illumina Sequencing by Synthesis. Every time a new fluorescently labelled nucleotide is added to a DNA strand, the fluorescence emitted by the nucleotide is captured. The image is then later converted to nucleotide sequence. Image source: [Microbenotes: Illumina Sequencing](https://microbenotes.com/illumina-sequencing/)
+
+```{r, echo=FALSE, out.width="90%", fig.cap="(ref:foo2)"}
 knitr::include_graphics("images/experimental_design/fig_illumina_sequencing.png")
 ```
 
-(ref:foo2) Illumina Sequencing by Synthesis. Every time a new fluorescently labelled nucleotide is added to a DNA strand, the fluorescence emitted by the nucleotide is captured. Image source: [Microbenotes: Illumina Sequencing](https://microbenotes.com/illumina-sequencing/)
 
 
 A diverse ecosystem of protocols and technology exist that can be used to generate RNAseq data, which can be used in a wide variety of applications. 
@@ -178,7 +180,7 @@ Long read sequencing typically refers to technology that produce reads with leng
 RNAseq data can be used for a variety of purposes. Broadly speaking, it can be used in 2 different ways:
 
 - qualitatively: *what* is expressed? (e.g genes, isoforms, specific exons, intron retention, gene fusions, etc). RNAseq provides *annotation* information.
-- quantatively: how *much* is expressed? Usually we want to know if the abundance of a gene has changed in response to a variable. RNAseq provides *expression* information. This is the most common use of RNAseq data.
+- quantatively: how *much* is expressed? Usually we want to know if the *abundance* of a gene has changed in response to a variable. This is the most common use of RNAseq data.
 
 This capability for simultaneous discovery and quantification at the whole transcriptome level is a key reason that cemented RNAseq as the technology of choice for studying RNA. Previous technologies such as microarrays used pre-defined probes based on known genes thus limiting their ability to discover new genes. 
 
@@ -258,7 +260,7 @@ If interested in transcript changes, the complexity of the analyses can be deter
 Long read sequencing can be more suited for isoform/transcript level analyses than short read sequencing as there is less or no ambiguity to which isofrom a read comes from, if the entire transcript has been sequenced. 
 
 
-(ref:foo16) Shrt reads can be amigious as to which isoform they belong to. Long reads have less uncertainty. Image source: [Improving gene isoform quantification with miniQuant, 2025](https://www.nature.com/articles/s41587-025-02633-9)
+(ref:foo16) Short reads can be ambigious as to which isoform they belong to. Long reads have less uncertainty. Image source: [Improving gene isoform quantification with miniQuant, 2025](https://www.nature.com/articles/s41587-025-02633-9)
 
 ```{r, echo=FALSE, out.width="100%",fig.cap='(ref:foo16)'}
 knitr::include_graphics("images/experimental_design/fig_41587_2025_2633_Fig1_HTML.png")
@@ -270,13 +272,13 @@ knitr::include_graphics("images/experimental_design/fig_41587_2025_2633_Fig1_HTM
 
 #### Transcriptome Assembly
 
-Most RNAseq datasets are used for quantative analysis - the data is aligned to a pre-existing reference genome and pre-existing annotations. However, these resources do not exist for every organism. When a reference genome is either unavailable or the reference available is not adequate, it is possible to take RNAseq reads and assemble them into a transcriptome of the assayed organism. In such situations, RNAseq data has a dual purpose - the reference is built from the sequences of the reads and then the reads are counted against the transcriptome for differential analysis. 
+Most RNAseq datasets are used for quantative analysis - the data is aligned to a pre-existing reference genome and pre-existing annotations. However, these resources do not exist for every organism. When a reference genome is either unavailable or the reference available is not adequate, it is possible to take RNAseq reads and assemble them into a transcriptome of the assayed organism. In such situations, RNAseq data has a dual purpose - the reference transcriptome is built from the sequences of the reads and then the reads are counted against the transcriptome for differential analysis. 
 
 Assembling a transcriptome can be done in 2 ways, there are reference based methods and de novo methods. Reference based methods use the reference of either the organism or a closely related species. 
 
 De novo assembly methods are reference free - this is useful when studying non-model organisms as often they lack well annotated reference genomes.
 
-Long read sequencing is better suited to building high quality transcriptomes than short read sequencing as the longer read length retains more information and context about the original RNA molecule. A commonly used analogy when describing assembly is to imagine the genome as a puzzle that needs to be put back together. The smaller the pieces, the more difficult the puzzle. A puzzle made of larger pieces is much easier to put back together and reconstruct the original RNA sequence. 
+Long read sequencing is better suited to building high quality transcriptomes than short read sequencing as the longer read length retains more information and context about the original RNA molecule. A commonly used analogy when describing assembly is to imagine the genome/transcriptome as a puzzle that needs to be put back together. The smaller the pieces, the more difficult the puzzle. A puzzle made of larger pieces is much easier to put back together and reconstruct the original RNA sequence. 
 
 (ref:foo17) Strategies for reconstructing transcripts from RNA-Seq reads. Image source: [Advancing RNAseq Analysis (2010)](https://www.nature.com/articles/nbt0510-421)
 
@@ -291,7 +293,7 @@ Transcriptome assembly is usually performed in situations when working with orga
 
 This also has clinical applications. One such application is the detection of fusion genes - these can arise due to chromosomal rearrangements combining the coding regions of two genes. These genes can produce aberrant proteins and lead to cancer development if the fused genes are oncogenes or tumor suppresor genes. Therefore, detection of fusion genes can be an important diagnostic tool in clinical settings as well as for cancer research.
 
-### Optional Discussion: Design A Bulk RNAseq Experiment {- .challenge}
+#### Optional Discussion: Design A Bulk RNAseq Experiment {- .challenge}
 
 You want to examine the impact of several different growth conditions in a specific bacterial strain and you are interested mostly in changes to gene expression. A side goal of your project is to look at small RNA changes. Assuming you have no limitations on your budget, what are some considerations you'd have in designing a potential RNAseq experiment for this project?
 
