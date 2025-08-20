@@ -22,7 +22,7 @@ A sequencing machine generates a readout of the nucleotides that make up the ori
 knitr::include_graphics("images/experimental_design/fig_illumina_sequencing.png")
 ```
 
-
+##
 
 A diverse ecosystem of protocols and technology exist that can be used to generate RNAseq data, which can be used in a wide variety of applications. 
 
