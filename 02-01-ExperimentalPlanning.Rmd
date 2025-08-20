@@ -205,14 +205,13 @@ Uses of RNAseq data:
 
 The most common type of analysis performed with RNAseq data is differential gene expression (DGE) analysis. This type of analysis looks at the difference in abundance for genes between 2 or more conditions. The conditions should have a suitable control condition that provides a baseline measurement that another condition can be compared against. 
 
-(ref:foo11) Image source: [Gene-level differential expression analysis with DESeq2](https://hbctraining.github.io/DGE_workshop_salmon_online/lessons/04a_design_formulas.html)
-
-```{r, echo=FALSE, out.width="100%", fig.align="center", fig.cap ="(ref:foo11)"}
+```{r, echo=FALSE, out.width="100%", fig.align="center", fig.cap = "A basic DGE analysis asks which genes have a difference in abundance between two conditions"}
 knitr::include_graphics("images/experimental_design/fig_dge.png")
 ```
 
 
-```{r, echo=FALSE, out.width="100%", eval=FALSE, include=FALSE}
+```{r, echo=FALSE, out.width="100%", eval=FALSE, , fig.cap ="(ref:foo11)", include=FALSE}
+# (ref:foo11) Image source: [Gene-level differential expression analysis with DESeq2](https://hbctraining.github.io/DGE_workshop_salmon_online/lessons/04a_design_formulas.html)
 # We'll get into this later in the workshop but broadly speaking, we align reads to the genome and then count how many reads map to an annotated gene. This produces a counts table - where the rows are the genes, the columns are samples and the values are the raw counts for that gene for that sample
 knitr::include_graphics("https://hbctraining.github.io/Intro-to-rnaseq-hpc-O2/img/count-matrix.png")
 ```

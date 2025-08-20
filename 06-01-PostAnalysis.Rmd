@@ -1,7 +1,3 @@
 # Additional Analysis
 
-Functional Enrichment: [ Biocommons - Functional Enrichment](https://www.biocommons.org.au/events/funct-enrich)
-
-```{r, echo=FALSE, out.width="100%",}
-knitr::include_graphics("images/Functional enrichment mini series.png")
-```
+[Functional Enrichment workshop learning material](https://monashbioinformaticsplatform.github.io/Functional_Enrichment_BioCommons_2024/)

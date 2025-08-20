@@ -415,7 +415,6 @@ _RNase H:_ This method uses enzymatic destruction of unwanted RNA. RNase H is an
 knitr::include_graphics("images/library_prep/Picture20.png")
 ```
 
-_Targeted amplification/NSR priming:_ Uses a set of random primers computationally depleted for those that bind rRNA or other unwanted transcripts ("not-so-random" or "NSR" primers). The depleted set is used for amplification of your sample, leaving rRNA unamplified. This works very well for ultra-low input samples, but is effective only if the depleted probes match your species’ rRNA. You should check with the vendor to ensure that your sample is compatible with the probe-sets in the kit.  For example, NuGen Ovation.
 
 _Abundance-based depletion:_ destroys all highly abundant transcripts. A total RNA library is constructed and converted to dsDNA, including unwanted transcripts. The two strands of each library molecule are denatured and slowly re-hybridised. Highly abundant molecules will form dsDNA more quickly than rarer ones, and a duplex-specific nuclease (DSN) digests dsDNA specifically. Because this is done after library construction, it works well for ultra-low input samples. It’s also sequence-independant, so it works for any species (unlike targeted methods, above). It can also reduce the sequencing requirement for samples that contain other very highly abundant transcripts that are not of interest. This is a double-edged sword: sequence independence means that any high abundance transcripts will be depleted, and sometimes the method must be optimised. 
 
