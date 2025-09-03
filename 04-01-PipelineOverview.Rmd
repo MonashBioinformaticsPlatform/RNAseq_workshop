@@ -36,7 +36,7 @@ Usually we quantify expression per gene (the sum of all transcripts arising from
 ![nf-core/rnaseq metromap](images/pipeline/nf-core_rnaseq.png){width="100%"}
 </a>
 
-### Laxy demo {- .challenge}
+### **Laxy demo** {- .challenge}
 
 We often run the [nf-core/rnaseq](https://nf-co.re/rnaseq) pipeline via the [Laxy](https://laxy.io) web interface, developed within the Platform.
 
