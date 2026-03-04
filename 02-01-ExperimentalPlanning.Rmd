@@ -143,7 +143,7 @@ When working with bulk tissue samples, the expression profiles of individual cel
 (ref:foo5) Differences between scRNAseq and bulk RNAseq. Image source: [Classical Single-Cell RNA Sequencing: a comprehensive overview](https://www.lexogen.com/classical-single-cell-rna-sequencing-a-comprehensive-overview/)
 
 ```{r, out.width="100%", echo=FALSE, fig.cap=' (ref:foo5)'}
-knitr::include_graphics("https://www.lexogen.com/wp-content/uploads/2024/01/Difference-between-scRNA-Seq-and-bulk-RNA-Seq.png")
+knitr::include_graphics("images/experimental_design/fig_lexogen_bulk_single_rna_diff.png")
 ```
 
 There are trade-offs between bulk and single cell sequencing. Bulk RNAseq is cheaper and suited for projects where global expression changes is what the researcher is interested in and the heterogeneity of the tissue sample isn't a concern or of interest to the researcher. Bulk RNAseq analysis tends to be less complicated and easier to perform. 
@@ -154,7 +154,7 @@ Single cell RNAseq is suited for projects where tissue heterogeneity is of inter
 (ref:foo7) Single cell vs bulk sequencing. Image source: [Single cell vs bulk sequencing](https://lizard.bio/knowledge-hub/single-cell-vs-bulk-sequencing)
 
 ```{r, out.width="100%", echo=FALSE, fig.cap=' (ref:foo7)'}
-knitr::include_graphics("https://lizard.bio/hs-fs/hubfs/scs_blog1_table-1.png?width=2065&height=1260&name=scs_blog1_table-1.png")
+knitr::include_graphics("images/experimental_design/fig_single_cell_vs_bulk_rnaseq_advantages_2023_biolizard.png")
 ```
 
 
@@ -235,7 +235,7 @@ After identifying differentially expressed genes, it is common to perform some t
 
 
 ```{r, echo=FALSE, out.width="100%", fig.cap="Dotplots of the results from overrepresentation anaylsis (ORA) and gene set enrichment analysis (GSEA). (ref:foo13)"}
-knitr::include_graphics("https://yulab-smu.top/biomedical-knowledge-mining-book/biomedicalKnowledge_files/figure-html/Dotplotcap-1.png")
+knitr::include_graphics("images/experimental_design/fig-Dotplotcap-1_enrichplot.svg")
 ```
 
 
