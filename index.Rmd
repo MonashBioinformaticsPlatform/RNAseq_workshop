@@ -17,7 +17,7 @@ github-repo: https://github.com/MonashBioinformaticsPlatform/RNAseq_workshop
 # Getting started  
 
     
-- **[All communications and important links will be in this Drive Document](https://docs.google.com/document/d/1qNgOxzwidhIzHRZMx_iJVGjL0kVqW9ru4wAlBJjhViY/edit?usp=sharing)**
+- **[All communications and important links will be in this Drive Document](https://docs.google.com/document/d/10s0b0c1ACLUw34IOu46C4zyT3I39fzFtZCExi3iGrDc/edit?usp=sharing)**
 
 
 - **Instructors:** Adele Barugahare, Nitika Kandhari, Natasha Ng, Andrew Perry, Paul Harrison, Laura Perlaza-Jimenez, Giulia Iacono
