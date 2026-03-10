@@ -96,24 +96,25 @@ This scenario illustrates a typical batch effect, where the biological differenc
 knitr::include_graphics("images/experimental_design/MDS-batch.png")
 ```
 
-Here are a few examples for how batch effects can be generated:
+Here are a few examples of batch effects:
 
 1. On the day of the experiment: 
-  - Disease group on day 1, healthy group on day 2
-  - Morning vs afternoon collection (metabolic studies) & season (microbiome)
-  - Snap freezing vs just freezing
-  - Protocol changes/optimisation
-  - Cage position in animal facility
+* Disease group on day 1, healthy group on day 2
+* Morning vs afternoon collection (metabolic studies) & season (microbiome)
+* Snap freezing vs just freezing
+* Protocol changes/optimisation
+* Cage position in animal facility
 
-2. During library preparation
-  - Half of libraries prepared by one operator, other half by other operator.
-  - Samples are processed/extracted in order of patient/mice/timepoint (not randomised)
-  - Old/expired kit to start with, new kit to finish 
+2. During library preparation:
+* Half of libraries prepared by one operator, other half by other operator.
+* Samples are processed/extracted in order of patient/mice/timepoint (not randomised)
+* Old/expired kit to start with, new kit to finish 
 
-3. Sequencing
-  - Different operators organising sequencing runs 
-  - Multiple sequencing runs spaced across months/years
-  - Facility library prep kit changes instrumentation upgrades over time
+3. Sequencing:
+* Different operators organising sequencing runs 
+* Multiple sequencing runs spaced across months/years
+* Facility library prep kit changes instrumentation upgrades over time
+
 
 Thus, it is crucial to think about what might contribute to a batch effect at the start of your project, keep good records and/or ensure you can access additional information in the future if required, thoroughly investigate the data, collect detailed information about the experimental design, and account for batch effects during differential expression analysis. Proper adjustment ensures more accurate and reliable biological interpretations, enabling meaningful insights from the RNA-Seq data.
 
