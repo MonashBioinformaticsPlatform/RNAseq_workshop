@@ -4,7 +4,7 @@
 
 ![](images/degust/degust.png){width="100%"}
 
-We will now use a web application called [Degust](https://degust.erc.monash.edu/) for statistical analysis of our data. Degust is developed by David Powell at Monash University. It provides an richly interactive interface to widely used R packages for statistical analysis of RNA-Seq data, primarily [limma](https://www.bioconductor.org/packages/release/bioc/html/limma.html) and [edgeR](https://www.bioconductor.org/packages/release/bioc/html/edgeR.html) which are developed at the Walter and Eliza Hall Institute.
+We will now use a web application called [Degust](https://degust.erc.monash.edu/) for statistical analysis of our data. Degust is developed by David Powell at Monash University. It provides a richly interactive interface to widely used R packages for statistical analysis of RNA-Seq data, primarily [limma](https://www.bioconductor.org/packages/release/bioc/html/limma.html) and [edgeR](https://www.bioconductor.org/packages/release/bioc/html/edgeR.html) which are developed at the Walter and Eliza Hall Institute.
 
 ## Re-introducing the example dataset
 
@@ -150,7 +150,7 @@ A volcano plot shows the effects of these thresholds.
 
 We might like a nice V-shaped volcano plot, where larger fold changes are always associated with smaller p-values. This sometimes happens, but not with this data. The reason is that the log fold change for each gene may be estimated more or less accurately, due to differing levels of biological or technical variation.
 
-There may be many false negative results, and if the experiment were repeated a quite different set of genes might be discovered! Statistical testing protects us from false discoveries but not false negatives. False negatives can be reduced with more replicates and better experimental design.
+There may be many false negative results, and if the experiment were repeated a quite different set of genes might be discovered! Statistical testing protects us from false discoveries but not false negatives. (It is possible to roughly estimate the number of false negatives using the p-value historgram, see below.) False negatives can be reduced with more replicates and better experimental design.
 
 ### MA plot
 
@@ -197,9 +197,9 @@ If a gene is not DE the p-value should be uniformly random between 0 and 1.
 
 So a flat histogram indicates likely no differential expression in any genes.
 
-If the histogram leans left, there probably is some real differential expression, even if no significant DE genes were found!
+If the histogram leans left, there probably is some real differential expression, even if no significant DE genes were found! If you draw a horizontal line from the right hand side of the histogram, the area above that line is an estimate of the true amount of differentially expressed genes (see [limma::propTrueNull](https://rdrr.io/bioc/limma/man/propTrueNull.html) for references).
 
-If the histogram leans right, something weird is going on because this shouldn't happen.
+If the histogram leans right, well, in theory this shouldn't happen. This might indicate the test is conservative.
 
 Here, the "E2_plusdox vs DMSO_plusdox" comparison leans strongly left as we would expect. The "E2_nodox vs DMSO_nodox" comparisons leans right. That is, hmm, actually a little unexpected, perhaps the p-values limma is producing are slightly conservative here.
 
