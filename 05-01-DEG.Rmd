@@ -258,7 +258,7 @@ We want: (E2_plusdox - DMSO_plusdox) - (E2_nodox - DMSO_nodox)
 
 ![](images/degust/interaction.png){width="75%"}
 
-This asks "is the effect of adding estrogen different when the estrogen gene is induced?"
+This asks "is the effect of adding estrogen different when the estrogen receptor gene is induced?"
 
 Once this is configured, you can choose it to test in the top-left box of the main page.
 
@@ -290,6 +290,8 @@ Explore the features we have demonstrated. Do you have observations or questions
 
 ## Going deeper
 
+Lets talk some more about units of measurement and statistical methods. You will encounter complex and differing opinions about some of these topics. I attempt to broadly summarize these opinions using two different characters, an "absolute expression enthusiast" and a "differential expression enthusiast".
+
 ### Units and normalisation
 
 Different numbers of reads are obtained from different samples. Our assumption is that most genes are not differentially expressed, so the total "library size" of a sample can serve as a reference level against which to compare each gene. **Counts Per Million (CPM)** is therefore a convenient unit to compare the expression of a gene across different samples. You may also see CPM referred to as RPM (Reads Per Million). (Technical note: If a highly expressed gene increases in expression, it will look like all of the other genes decreased a little in terms of CPM. It is common to make adjustments to library sizes to account for this. Degust uses an adjustment called "TMM".)
@@ -304,7 +306,7 @@ To find TPMs in the Laxy output, in the output pane you would navigate to `outpu
 
 **Absolute expression enthusiast says:** "TPM is great! TPM is the right unit to describe absolute RNA expression levels."
 
-**Differential expression enthusiast says:** "I don't care about absolute expression levels, just fold changes. Raw counts are what I need for statistical analysis. TPMs are not raw counts!"
+**Differential expression enthusiast says:** "I don't care about absolute expression levels, just fold changes. My statistical software requires raw counts as input, and TPMs are not raw counts!"
 
 
 ### UMIs and counting
@@ -322,7 +324,7 @@ Modern RNA-Seq protocols tag fragments with a **Unique Molecular Identifier (UMI
 * Transcripts/isoforms?
 * Exons?
 
-Software such as Salmon can estimate transcript/isoform abundances. Since genes have multiple overlapping transcripts, estimating transcript abundance is a difficult inference task. Estimated abundances might hinge on just a few reads, creating an extra source of variation. There is also software such as featureCounts which does something much simpler, counting reads aligning to genes. Output from both of these software packages is included in the Laxy pipeline output. featureCounts output was used in this workshop. It is also possible to use featureCounts to produce counts at the exon level.
+Software such as Salmon can estimate transcript/isoform abundances. Since genes have multiple overlapping transcripts, estimating transcript abundance is a difficult inference task. Estimated abundances might hinge on just a few reads, creating an extra source of variation. There is also software such as featureCounts which simply counts reads aligning to genes. Output from both of these software packages is included in the Laxy pipeline output. featureCounts output was used in this workshop. It is also possible to use featureCounts to produce counts at the exon level.
 
 Even at the gene level, it is sometimes ambiguous where a read belongs. Salmon can fractionally assign reads to multiple transcripts, which might come from different genes. Gene-level counts are obtained from Salmon by summing the transcript-level counts. Again, Salmon is attempting a difficult inference task where the gene assignment for many reads might hinge on just a few of those reads. On the other hand featureCounts output as produced by Laxy will exclude ambiguous reads ("multi-mapping" or "multi-overlapping" reads). The total count for featureCounts will be less than for Salmon, but there is also less to go wrong!
 
@@ -330,10 +332,10 @@ Even at the gene level, it is sometimes ambiguous where a read belongs. Salmon c
 
 **Differential expression enthusiast says:** "Genes are easiest to work with. Trying to estimate differential transcript-level counts is a hard inference task, I really have to know what I'm doing and I'll need deeper sequencing too. I do worry a little that differential transcript usage might look like differential gene expression if the transcripts of a gene have different lengths, but it hasn't been a problem in practice."
 
-"At the gene level," continues the differential expression enthusiast, becoming animated, "I did try using some purported TPM-abundance-based counts that the `nf-core/rnaseq` pipeline produced with this dataset, such as `salmon.merged.gene_counts_length_scaled.tsv`, and I noticed in the heatmap there were some extremely noisy genes. This artifactual large amount of noise in some genes can make the whole differential expression analysis worse, because it affects the 'Empirical Bayes' part of the analysis. Proper analysis might involve, for example, the `catchSalmon` function in `edgeR`, which makes use of bootstrap information provided by Salmon. This is not available in Degust."
+"At the gene level," continues the differential expression enthusiast, becoming animated, "I did try using some purported TPM-abundance-based counts that the `nf-core/rnaseq` pipeline produced with this dataset, such as `salmon.merged.gene_counts_length_scaled.tsv`, and I noticed in the heatmap there were some extremely noisy genes. This artifactual large amount of noise in some genes can make the whole differential expression analysis worse, because it affects the "Empirical Bayes" part of the analysis. Proper analysis might involve, for example, the `catchSalmon` function in `edgeR`, which makes use of bootstrap information provided by Salmon. This is not available in Degust."
 
 
-### Other methods
+### Other statistical methods
 
 Besides the default voom/limma method, Degust offers a drop-down box of further methods. When might these be used?
 
@@ -341,7 +343,7 @@ Besides the default voom/limma method, Degust offers a drop-down box of further 
 
 With the default voom/limma method, all samples are assumed to have the same quality. Recall that the residual variance is estimated from all samples, even if we are only comparing two conditions. Poor quality samples can therefore harm *all* of the comparisons we do.
 
-Voom with sample weights allows that there might be some samples with lower quality. It assigns each sample a weight, i.e. it allows that some samples may have more variation than others. If your data contains poor quality samples, but you don't want to exclude them, this method might be used.
+Voom with sample weights allows that there might be some samples with lower quality. It assigns each sample a weight, i.e. it allows that some samples may have more variation than others. The weights chosen can be seen in "Show extra info/sample_weights". If your data contains poor quality samples but you don't want to exclude them entirely you might use this method.
 
 
 #### edgeR quasi-likelihood
@@ -354,7 +356,7 @@ Recall that the voom/limma method uses a linear model with precision weights der
 * Noise is assumed to follow a negative-binomial distribution, which is thought to be appropriate for count data which also has biological variation.
 * The quasi-likelihood method allows that variation may be greater than expected with the proper negative-bionmial distribution, and also that this may vary from gene to gene.
 
-The edgeR quasi-likelihood is built on a strong theoretical foundation, whereas the voom/limma method is more about flexibly adapting to the data. We do not have any strong reason to prefer one method over the other.
+The edgeR quasi-likelihood method is built on a strong theoretical foundation, whereas the voom/limma method is more about flexibly adapting to the data. We do not have any strong reason to prefer one method over the other.
 
 
 #### Topconfects
