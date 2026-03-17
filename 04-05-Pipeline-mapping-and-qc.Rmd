@@ -62,7 +62,7 @@ We can use these QC metrics to identify:
 - library prep anomalies, barcode mixups
 
 By the time you see this QC, often there is very little that can be done to 'fix' a dataset or poor experimental design.
-However, these quality issues do not nessecarily make a dataset unusable. It's useful to know what you are working with.
+However, these quality issues do not necessarily make a dataset unusable. It's useful to know what you are working with.
 This might guide decisions around future experiments or resequencing, or occasionally provide justification for excluding some samples.
 
 
@@ -96,7 +96,7 @@ There are several classes of read here:
 - Unmapped: too short (low quality reads, trimmed to oblivion)
 - Unmapped: other (no match to the genome sequence)
 
-For traditional feature counting to estimate gene expression, only the the **unambiguous, uniquely mapped** reads are used.
+For traditional feature counting to estimate gene expression, only the **unambiguous, uniquely mapped** reads are used.
 
 **What should you expect from your data ?**
 
