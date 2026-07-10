@@ -1,5 +1,21 @@
 # Overview of RNA Sequencing
 
+## A Refresher
+
+The nucleus of almost every cell contains genetic material (Deoxyribonucleic acid / DNA). DNA encodes the blueprints necessary for the functioning and development of living organisms - the proteins that make up our bodies and regulate its functioning. 
+
+To produce a protein, a copy of the DNA encoding for it is made with RNA (Ribonucleic Acid). 
+
+A common analogy is to think of DNA as a recipe book - containing the instructions necessary for life. RNA can be considered as a copy of a single recipe and protein as the final product of the recipe.
+
+The central dogma of molecular biology is commonly stated that genetic information flows one way from DNA to RNA to protein:
+
+(ref:foo0) Central Dogma of molecular biology.  [Image source](https://www.genome.gov/genetics-glossary/Central-Dogma)
+
+```{r, echo=FALSE, out.width="90%", fig.cap="(ref:foo0)"}
+knitr::include_graphics("images/experimental_design/fig_nih_central_dogma.jpg")
+```
+
 
 ## What Is RNAseq
 
