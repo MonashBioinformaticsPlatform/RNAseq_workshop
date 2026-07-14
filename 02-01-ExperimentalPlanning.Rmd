@@ -4,18 +4,21 @@
 
 The nucleus of almost every cell contains genetic material (Deoxyribonucleic acid / DNA). DNA encodes the blueprints necessary for the functioning and development of living organisms - the proteins that make up our bodies and regulate its functioning. 
 
-To produce a protein, a copy of the DNA encoding for it is made with RNA (Ribonucleic Acid). 
+To produce a protein, a copy of the gene encoding for it is made with RNA (Ribonucleic Acid). 
 
 A common analogy is to think of DNA as a recipe book - containing the instructions necessary for life. RNA can be considered as a copy of a single recipe and protein as the final product of the recipe.
 
-The central dogma of molecular biology is commonly stated that genetic information flows one way from DNA to RNA to protein:
+The central dogma of molecular biology is commonly stated that genetic information flows one way from DNA to RNA to protein.
 
-(ref:foo0) Central Dogma of molecular biology.  [Image source](https://www.genome.gov/genetics-glossary/Central-Dogma)
+(ref:foo0) Central Dogma of molecular biology. Image source: [NIH: Central Dogma](https://www.genome.gov/genetics-glossary/Central-Dogma)
 
 ```{r, echo=FALSE, out.width="90%", fig.cap="(ref:foo0)"}
 knitr::include_graphics("images/experimental_design/fig_nih_central_dogma.jpg")
 ```
 
+The production of proteins is carefully orchestrated. A cell does not produce each protein encoded in its DNA at the same time, instead the expression of proteins is controlled. A kidney cell and a brain cell have the same DNA and yet their function is different. The diversity of cells produced by an organism arises from the expression of different combinations of genes. 
+
+To study the genes controlling the functioning and development of cells and tissues in an organism, the RNA can be extracted and sequenced. This allows us to understand which genes are being expressed and which aren't. 
 
 ## What Is RNAseq
 
