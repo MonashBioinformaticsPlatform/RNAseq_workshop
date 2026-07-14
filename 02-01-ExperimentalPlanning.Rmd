@@ -6,19 +6,32 @@ The nucleus of almost every cell contains genetic material (Deoxyribonucleic aci
 
 To produce a protein, a copy of the gene encoding for it is made with RNA (Ribonucleic Acid). 
 
+
+(ref:foo0) A gene is expressed through the processes of transcription and translation. Image source: [Translation: DNA to mRNA to Protein](https://www.nature.com/scitable/topicpage/translation-dna-to-mrna-to-protein-393/)
+
+```{r, echo=FALSE, out.width="90%", fig.cap="(ref:foo0)"}
+knitr::include_graphics("images/fig_gene_expression.jpg")
+```
+
 A common analogy is to think of DNA as a recipe book - containing the instructions necessary for life. RNA can be considered as a copy of a single recipe and protein as the final product of the recipe.
 
 The central dogma of molecular biology is commonly stated that genetic information flows one way from DNA to RNA to protein.
 
-(ref:foo0) Central Dogma of molecular biology. Image source: [NIH: Central Dogma](https://www.genome.gov/genetics-glossary/Central-Dogma)
+(ref:foo1) Central Dogma of molecular biology. Image source: [NIH](https://www.genome.gov/genetics-glossary/Central-Dogma)
 
-```{r, echo=FALSE, out.width="90%", fig.cap="(ref:foo0)"}
+```{r, echo=FALSE, out.width="90%", fig.cap="(ref:foo1)"}
 knitr::include_graphics("images/experimental_design/fig_nih_central_dogma.jpg")
 ```
 
-The production of proteins is carefully orchestrated. A cell does not produce each protein encoded in its DNA at the same time, instead the expression of proteins is controlled. A kidney cell and a brain cell have the same DNA and yet their function is different. The diversity of cells produced by an organism arises from the expression of different combinations of genes. 
+The production of proteins is carefully orchestrated. A cell does not produce each protein encoded in its DNA at the same time, instead the expression of proteins is controlled. A kidney cell and a brain cell have the same DNA and yet their function is different. The diversity of cells produced by an organism arises from the expression of different combinations of genes and with different efficiency. 
 
-To study the genes controlling the functioning and development of cells and tissues in an organism, the RNA can be extracted and sequenced. This allows us to understand which genes are being expressed and which aren't. 
+(ref:foo2) Genes can be expressed with different efficiencies. Image source: [Molecular Biology of the Cell: From DNA to RNA](https://www.ncbi.nlm.nih.gov/books/NBK26887/)
+
+```{r, echo=FALSE, out.width="90%", fig.cap="(ref:foo2)"}
+knitr::include_graphics("images/fig_gene_efficiency.jpg")
+```
+
+To study the genes controlling the functioning and development of cells and tissues in an organism, the RNA can be extracted and sequenced from a tissue. This allows us to understand which genes are being expressed in that tissue and which aren't. 
 
 ## What Is RNAseq
 
@@ -26,9 +39,9 @@ RNAseq is a next generation sequencing technique for profiling all or selected R
 
 A diverse ecosystem of protocols and technology exist that can be used to generate RNAseq data, which can be used in a wide variety of applications. 
 
-(ref:foo1) Overview of the steps in an RNAseq experiment. At each of these steps, there are choices that are made that can influence the final output of the experiment. Image source: [RNA Sequencing Data: Hitchhiker's Guide to Expression Analysis, 2019](https://www.annualreviews.org/content/journals/10.1146/annurev-biodatasci-072018-021255)
+(ref:foo3) Overview of the steps in an RNAseq experiment. At each of these steps, there are choices that are made that can influence the final output of the experiment. Image source: [RNA Sequencing Data: Hitchhiker's Guide to Expression Analysis, 2019](https://www.annualreviews.org/content/journals/10.1146/annurev-biodatasci-072018-021255)
 
-```{r, echo=FALSE, out.width="90%", fig.cap="(ref:foo1)"}
+```{r, echo=FALSE, out.width="90%", fig.cap="(ref:foo3)"}
 knitr::include_graphics("images/experimental_design/overview_rnaseq.png")
 ```
 
@@ -36,9 +49,9 @@ knitr::include_graphics("images/experimental_design/overview_rnaseq.png")
 
 A sequencing machine generates a readout of the nucleotides that make up a DNA fragement. The most common type of sequencing is Sequencing by Synthesis which involves the use of unique fluorescently labelled nucleotides. These nucleotides are added one at a time and every time one of these nucleotides are added to a strand of DNA, the fluorescence emitted is detected by the sequencing machine.
 
-(ref:foo2) Illumina Sequencing by Synthesis. Image source: [Microbenotes: Illumina Sequencing](https://microbenotes.com/illumina-sequencing/)
+(ref:foo4) Illumina Sequencing by Synthesis. Image source: [Microbenotes: Illumina Sequencing](https://microbenotes.com/illumina-sequencing/)
 
-```{r, echo=FALSE, out.width="90%", fig.cap="(ref:foo2)"}
+```{r, echo=FALSE, out.width="90%", fig.cap="(ref:foo4)"}
 knitr::include_graphics("images/experimental_design/fig_illumina_sequencing.png")
 ```
 
@@ -66,10 +79,10 @@ knitr::include_graphics("images/experimental_design/expectations_reality.jpg")
 
 A common question researchers often ask is whether to sequence more deeply or sequence more samples. More biological replicates will provide better estimates of variance and more precise measures of gene expression than sequencing to a greater depth. It is generally advised to sequence more samples rather than sequence deeply if the option is there as early studies showed that more replicates provided more statistical power to identify differentially expressed genes over sequencing to a greater depth.
 
-(ref:foo3) Biological replicates provide more statistical power to detect differential genes than sequencing depth. Image source: [Liu Y et al, RNA-seq differential expression studies: more sequence or more replication? Bioinformatics. 2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3904521/)
+(ref:foo5) Biological replicates provide more statistical power to detect differential genes than sequencing depth. Image source: [Liu Y et al, RNA-seq differential expression studies: more sequence or more replication? Bioinformatics. 2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3904521/)
 
 
-```{r, echo=FALSE, fig.align="center", fig.cap="(ref:foo3) ", out.width="90%"}
+```{r, echo=FALSE, fig.align="center", fig.cap="(ref:foo5) ", out.width="90%"}
 knitr::include_graphics("images/experimental_design/liu_y_bioinformatics_2014.jpg")
 ```
 
@@ -159,9 +172,9 @@ These descriptions of RNAseq are not mutually exclusive and are in fact used in 
 
 When working with bulk tissue samples, the expression profiles of individual cells is lost. A specific cell type might express high levels for a particular gene while another cell type might have low expression for that gene. In such a situation, the average profile of that gene is captured instead across the tissue. To retain information about the individual cells, single cell sequencing protocols have been developed and become quite popular. 
 
-(ref:foo5) Differences between scRNAseq and bulk RNAseq. Image source: [Classical Single-Cell RNA Sequencing: a comprehensive overview](https://www.lexogen.com/classical-single-cell-rna-sequencing-a-comprehensive-overview/)
+(ref:foo6) Differences between scRNAseq and bulk RNAseq. Image source: [Classical Single-Cell RNA Sequencing: a comprehensive overview](https://www.lexogen.com/classical-single-cell-rna-sequencing-a-comprehensive-overview/)
 
-```{r, out.width="100%", echo=FALSE, fig.cap=' (ref:foo5)'}
+```{r, out.width="100%", echo=FALSE, fig.cap=' (ref:foo6)'}
 knitr::include_graphics("images/experimental_design/fig_lexogen_bulk_single_rna_diff.png")
 ```
 
@@ -207,9 +220,9 @@ This capability for simultaneous discovery and quantification at the whole trans
 knitr::include_graphics("images/experimental_design/rnaseq_data.png")
 ```
 
-(ref:foo10) Image source: [RNA-seq](https://helixio.com/page/rna-seq-1)
+(ref:foo9) Image source: [RNA-seq](https://helixio.com/page/rna-seq-1)
 
-```{r, echo=FALSE, out.width="100%", fig.cap='(ref:foo10)'}
+```{r, echo=FALSE, out.width="100%", fig.cap='(ref:foo9)'}
 knitr::include_graphics("images/experimental_design/fig_rnaseq_uses_helixio.jpg")
 ```
 
@@ -232,8 +245,8 @@ knitr::include_graphics("images/experimental_design/fig_dge.png")
 ```
 
 
-```{r, echo=FALSE, out.width="100%", eval=FALSE, , fig.cap ="(ref:foo11)", include=FALSE}
-# (ref:foo11) Image source: [Gene-level differential expression analysis with DESeq2](https://hbctraining.github.io/DGE_workshop_salmon_online/lessons/04a_design_formulas.html)
+```{r, echo=FALSE, out.width="100%", eval=FALSE, , fig.cap ="(ref:foo19)", include=FALSE}
+# (ref:foo19) Image source: [Gene-level differential expression analysis with DESeq2](https://hbctraining.github.io/DGE_workshop_salmon_online/lessons/04a_design_formulas.html)
 # We'll get into this later in the workshop but broadly speaking, we align reads to the genome and then count how many reads map to an annotated gene. This produces a counts table - where the rows are the genes, the columns are samples and the values are the raw counts for that gene for that sample
 knitr::include_graphics("https://hbctraining.github.io/Intro-to-rnaseq-hpc-O2/img/count-matrix.png")
 ```
@@ -241,7 +254,7 @@ knitr::include_graphics("https://hbctraining.github.io/Intro-to-rnaseq-hpc-O2/im
 
 
 ```{r, echo=FALSE, eval=FALSE, include=FALSE, out.width="100%", fig.cap="DGE analysis is usually asking if there is a signficant difference between the mean expression levels of the conditions. (ref:foo12)"}
-# (ref:foo12) Image source: [Differential expression analysis with DESeq2](https://hbctraining.github.io/DGE_workshop_salmon/lessons/04_DGE_DESeq2_analysis.html)
+# (ref:foo20) Image source: [Differential expression analysis with DESeq2](https://hbctraining.github.io/DGE_workshop_salmon/lessons/04_DGE_DESeq2_analysis.html)
 knitr::include_graphics("images/experimental_design/fig_de_theory.png")
 ```
 
@@ -250,10 +263,10 @@ knitr::include_graphics("images/experimental_design/fig_de_theory.png")
 After identifying differentially expressed genes, it is common to perform some type of pathway enrichment analysis or gene set enrichment to find molecular pathways or biologically processes that these genes are involved with. This can allow the researcher to identify trends that might be hard to notice when looking at individual genes.
 
 
-(ref:foo13) Image source: [Biomedical Knowledge Mining using GOSemSim and clusterProfiler](https://yulab-smu.top/biomedical-knowledge-mining-book/enrichplot.html)
+(ref:foo10) Image source: [Biomedical Knowledge Mining using GOSemSim and clusterProfiler](https://yulab-smu.top/biomedical-knowledge-mining-book/enrichplot.html)
 
 
-```{r, echo=FALSE, out.width="100%", fig.cap="Dotplots of the results from overrepresentation anaylsis (ORA) and gene set enrichment analysis (GSEA). (ref:foo13)"}
+```{r, echo=FALSE, out.width="100%", fig.cap="Dotplots of the results from overrepresentation anaylsis (ORA) and gene set enrichment analysis (GSEA). (ref:foo10)"}
 knitr::include_graphics("images/experimental_design/fig-Dotplotcap-1_enrichplot.png")
 ```
 
@@ -267,9 +280,9 @@ knitr::include_graphics("images/experimental_design/fig_dif_splice_usage.png")
 Additionally, we can look at whether transcript levels are changing between two conditions, regardless of the gene of origin. This is known as differential transcript expression. 
 
 
-(ref:foo15) Image source: [Froussios K, et al, Relative Abundance of Transcripts (RATs): Identifying differential isoform abundance from RNA-seq. F1000Research. 2019](https://pmc.ncbi.nlm.nih.gov/articles/PMC6426083/)
+(ref:foo11) Image source: [Froussios K, et al, Relative Abundance of Transcripts (RATs): Identifying differential isoform abundance from RNA-seq. F1000Research. 2019](https://pmc.ncbi.nlm.nih.gov/articles/PMC6426083/)
 
-```{r, echo=FALSE, fig.align="center", fig.cap="The types of differential expression analysis. (ref:foo15)", out.width="100%"}
+```{r, echo=FALSE, fig.align="center", fig.cap="The types of differential expression analysis. (ref:foo11)", out.width="100%"}
 knitr::include_graphics("images/experimental_design/fig_f1000research-8-19594-g0000.jpg")
 ```
 
@@ -279,9 +292,9 @@ If interested in transcript changes, the complexity of the analyses can be deter
 Long read sequencing can be more suited for isoform/transcript level analyses than short read sequencing as there is less or no ambiguity to which isofrom a read comes from, if the entire transcript has been sequenced. 
 
 
-(ref:foo16) Short reads can be ambigious as to which isoform they belong to. Long reads have less uncertainty. Image source: [Improving gene isoform quantification with miniQuant, 2025](https://www.nature.com/articles/s41587-025-02633-9)
+(ref:foo12) Short reads can be ambigious as to which isoform they belong to. Long reads have less uncertainty. Image source: [Improving gene isoform quantification with miniQuant, 2025](https://www.nature.com/articles/s41587-025-02633-9)
 
-```{r, echo=FALSE, out.width="100%",fig.cap='(ref:foo16)'}
+```{r, echo=FALSE, out.width="100%",fig.cap='(ref:foo12)'}
 knitr::include_graphics("images/experimental_design/fig_41587_2025_2633_Fig1_HTML.png")
 ```
 
@@ -301,9 +314,9 @@ A combination of long read sequencing & short read sequencing is best suited to 
 
 A commonly used analogy when describing assembly is to imagine the genome/transcriptome as a puzzle that needs to be put back together. The smaller the pieces, the more difficult the puzzle. A puzzle made of larger pieces is much easier to put back together and reconstruct the original RNA sequence. 
 
-(ref:foo17) Strategies for reconstructing transcripts from RNA-Seq reads. Image source: [Advancing RNAseq Analysis (2010)](https://www.nature.com/articles/nbt0510-421)
+(ref:foo13) Strategies for reconstructing transcripts from RNA-Seq reads. Image source: [Advancing RNAseq Analysis (2010)](https://www.nature.com/articles/nbt0510-421)
 
-```{r, echo=FALSE, out.width="100%", fig.cap='(ref:foo17)'}
+```{r, echo=FALSE, out.width="100%", fig.cap='(ref:foo13)'}
 knitr::include_graphics("images/experimental_design/fig_advancing_rnaseq_analysis.png")
 ```
 
