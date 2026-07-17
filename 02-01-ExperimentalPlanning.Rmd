@@ -9,7 +9,7 @@ To produce a protein, a copy of the gene encoding for it is made with RNA (Ribon
 (ref:foo0) A gene is expressed through the processes of transcription and translation. Image source: [Translation: DNA to mRNA to Protein](https://www.nature.com/scitable/topicpage/translation-dna-to-mrna-to-protein-393/)
 
 ```{r, echo=FALSE, out.width="90%", fig.cap="(ref:foo0)"}
-knitr::include_graphics("images/fig_gene_expression.jpg")
+knitr::include_graphics("images/experimental_design/fig_gene_expression.jpg")
 ```
 
 A common analogy is to think of DNA as a recipe book - containing the instructions necessary for life. RNA can be considered as a copy of a single recipe and protein as the final product of the recipe.
@@ -22,15 +22,15 @@ The central dogma of molecular biology is commonly stated that genetic informati
 knitr::include_graphics("images/experimental_design/fig_nih_central_dogma.jpg")
 ```
 
-The production of proteins is carefully orchestrated. A cell does not produce each protein encoded in its DNA at the same time, instead the expression of proteins is controlled. A kidney cell and a brain cell have the same DNA and yet their function is different. The diversity of cells produced by an organism arises from the expression of different combinations of genes and with different efficiency.
+The production of proteins is carefully orchestrated. A cell does not produce each protein encoded in its DNA at the same time, instead the expression of proteins is controlled. A kidney cell and a brain cell have the same DNA and yet their function is different. The diversity of cells produced by an organism arises from the expression of different combinations of genes and with different efficiency and timing. 
 
 (ref:foo2) Genes can be expressed with different efficiencies. Image source: [Molecular Biology of the Cell: From DNA to RNA](https://www.ncbi.nlm.nih.gov/books/NBK26887/)
 
 ```{r, echo=FALSE, out.width="50%", fig.cap="(ref:foo2)"}
-knitr::include_graphics("images/fig_gene_efficiency.jpg")
+knitr::include_graphics("images/experimental_design/fig_gene_efficiency.jpg")
 ```
 
-To study the genes controlling the functioning and development of cells and tissues in an organism, the RNA can be extracted and sequenced from a tissue. This allows us to understand which genes are being expressed in that tissue and which aren't.
+To study the genes controlling the functioning and development of cells and tissues in an organism, the RNA can be extracted and sequenced from a tissue. This allows us to understand which genes are being expressed in that tissue and which aren't. We can study this in different contexts: which genes change in response to infections, due to injuries, changes in diet, ageing, etc. The technology commonly used for such studies is RNAseq. 
 
 ## What Is RNAseq
 
@@ -48,15 +48,21 @@ knitr::include_graphics("images/experimental_design/overview_rnaseq.png")
 
 A sequencing machine generates a readout of the nucleotides that make up a DNA fragement. The most common type of sequencing is Sequencing by Synthesis which involves the use of unique fluorescently labelled nucleotides. These nucleotides are added one at a time and every time one of these nucleotides are added to a strand of DNA, the fluorescence emitted is detected by the sequencing machine.
 
-(ref:foo4) Illumina Sequencing by Synthesis. Image source: [Microbenotes: Illumina Sequencing](https://microbenotes.com/illumina-sequencing/)
+(ref:foo14) Illumina Sequencing by Synthesis. Image source: [Microbenotes: Illumina Sequencing](https://microbenotes.com/illumina-sequencing/)
 
-```{r, echo=FALSE, out.width="90%", fig.cap="(ref:foo4)"}
+```{r, echo=FALSE, out.width="90%", fig.cap="(ref:foo14)"}
 knitr::include_graphics("images/experimental_design/fig_illumina_sequencing.png")
 ```
 
 ## Planning an RNAseq Experiment
 
 The first step of planning an RNAseq experiment is asking whether RNAseq will answer the intended research question and whether it should be performed. Sequencing experiments are not cheap and a lot of time and money can be saved by ensuring that the sequencing experiment performed is suited to answering the research question at hand. There is a huge diversity in what RNA-seq can achieve due to the number of different protocols that have been developed and published. Therefore having a clear experimental goal will help in selecting an appropriate protocol that will best answer the research question as well as a good experimental design that will allow you to get the statistical power to answer that question.
+
+(ref:foo4)This poster dates to 2015 and shows the diversity of RNAseq protocols developed by Illumina. In the decade since, these protocols have greatly increased in number. Image source: [Illumina: For All You Seq (RNA)](https://www.illumina.com/content/dam/illumina-marketing/documents/applications/ngs-library-prep/for-all-you-seek-rna.pdf)
+
+```{r, echo=FALSE, out.width="90%", fig.cap="(ref:foo4)"}
+knitr::include_graphics("images/experimental_design/for-all-you-seq-rna.pdf")
+```
 
 There are some main considerations to planning an RNAseq experiment:
 
