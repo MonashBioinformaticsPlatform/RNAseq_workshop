@@ -58,9 +58,9 @@ knitr::include_graphics("images/experimental_design/fig_illumina_sequencing.png"
 
 The first step of planning an RNAseq experiment is asking whether RNAseq will answer the intended research question and whether it should be performed. Sequencing experiments are not cheap and a lot of time and money can be saved by ensuring that the sequencing experiment performed is suited to answering the research question at hand. There is a huge diversity in what RNA-seq can achieve due to the number of different protocols that have been developed and published. Therefore having a clear experimental goal will help in selecting an appropriate protocol that will best answer the research question as well as a good experimental design that will allow you to get the statistical power to answer that question.
 
-(ref:foo14)This poster dates to 2015 and shows the diversity of RNAseq protocols developed by Illumina. In the decade since, these protocols have greatly increased in number. Image source: [Illumina: For All You Seq (RNA)](https://www.illumina.com/content/dam/illumina-marketing/documents/applications/ngs-library-prep/for-all-you-seek-rna.pdf)
+(ref:foo5)This poster dates to 2015 and shows the diversity of RNAseq protocols developed by Illumina. In the decade since, these protocols have greatly increased in number. Image source: [Illumina: For All You Seq (RNA)](https://www.illumina.com/content/dam/illumina-marketing/documents/applications/ngs-library-prep/for-all-you-seek-rna.pdf)
 
-```{r, echo=FALSE, out.width="90%", fig.cap="(ref:foo14)"}
+```{r, echo=FALSE, out.width="90%", fig.cap="(ref:foo5)"}
 knitr::include_graphics("images/experimental_design/for-all-you-seq-rna.pdf")
 ```
 
@@ -80,9 +80,9 @@ knitr::include_graphics("images/experimental_design/expectations_reality.jpg")
 
 A common question researchers often ask is whether to sequence more deeply or sequence more samples. More biological replicates will provide better estimates of variance and more precise measures of gene expression than sequencing to a greater depth. It is generally advised to sequence more samples rather than sequence deeply if the option is there as early studies showed that more replicates provided more statistical power to identify differentially expressed genes over sequencing to a greater depth.
 
-(ref:foo5) Biological replicates provide more statistical power to detect differential genes than sequencing depth. Image source: [Liu Y et al, RNA-seq differential expression studies: more sequence or more replication? Bioinformatics. 2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3904521/)
+(ref:foo6) Biological replicates provide more statistical power to detect differential genes than sequencing depth. Image source: [Liu Y et al, RNA-seq differential expression studies: more sequence or more replication? Bioinformatics. 2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3904521/)
 
-```{r, echo=FALSE, fig.align="center", fig.cap="(ref:foo5) ", out.width="90%"}
+```{r, echo=FALSE, fig.align="center", fig.cap="(ref:foo6) ", out.width="90%"}
 knitr::include_graphics("images/experimental_design/liu_y_bioinformatics_2014.jpg")
 ```
 
@@ -118,7 +118,7 @@ These descriptions of RNAseq are not mutually exclusive and are in fact used in 
 
 +-----------------------------------------+-----------------------------------------------------------------------+---------------------------------------------------------+------------------------------------------+
 | Biological material\                    | Entire tissue: Bulk RNAseq                                            | Individual cells: Single cell RNAseq                    |                                          |
-+-----------------------------------------+-----------------------------------------------------------------------+---------------------------------------------------------+------------------------------------------+
++=========================================+=======================================================================+=========================================================+==========================================+
 | RNA tissue source\                      | Fresh                                                                 | Frozen                                                  | FFPE (Formalin-fixed, paraffin-embedded) |
 +-----------------------------------------+-----------------------------------------------------------------------+---------------------------------------------------------+------------------------------------------+
 | RNA species sequenced                   | All RNA species captured: total RNAseq                                | mRNA only: mRNAseq                                      | small RNA: small RNAseq                  |
@@ -138,9 +138,9 @@ These descriptions of RNAseq are not mutually exclusive and are in fact used in 
 
 When working with bulk tissue samples, the expression profiles of individual cells is lost. A specific cell type might express high levels for a particular gene while another cell type might have low expression for that gene. In such a situation, the average profile of that gene is captured instead across the tissue. To retain information about the individual cells, single cell sequencing protocols have been developed and become quite popular.
 
-(ref:foo6) Differences between scRNAseq and bulk RNAseq. Image source: [Classical Single-Cell RNA Sequencing: a comprehensive overview](https://www.lexogen.com/classical-single-cell-rna-sequencing-a-comprehensive-overview/)
+(ref:foo7) Differences between scRNAseq and bulk RNAseq. Image source: [Classical Single-Cell RNA Sequencing: a comprehensive overview](https://www.lexogen.com/classical-single-cell-rna-sequencing-a-comprehensive-overview/)
 
-```{r, out.width="100%", echo=FALSE, fig.cap=' (ref:foo6)'}
+```{r, out.width="100%", echo=FALSE, fig.cap=' (ref:foo7)'}
 knitr::include_graphics("images/experimental_design/fig_lexogen_bulk_single_rna_diff.png")
 ```
 
@@ -148,17 +148,17 @@ There are trade-offs between bulk and single cell sequencing. Bulk RNAseq is che
 
 Single cell RNAseq is suited for projects where tissue heterogeneity is of interest. It's also ideal for stdying rare cell types, as the signal from such cells would be lost in a bulk tissue. It can be used for charaterising cell states, identifying cell markers and studying cell lineage development and differentiation. Fewer genes are detected in a single cell RNAseq experiment and the data is lot more variable. If you are working with sorted cell populations, there may not be much heterogeneity in the sample, in which case single cell RNAseq might be a very expensive way to go about answering your question.
 
-(ref:foo7) Single cell vs bulk sequencing. Image source: [Single cell vs bulk sequencing](https://lizard.bio/knowledge-hub/single-cell-vs-bulk-sequencing)
+(ref:foo8) Single cell vs bulk sequencing. Image source: [Single cell vs bulk sequencing](https://lizard.bio/knowledge-hub/single-cell-vs-bulk-sequencing)
 
-```{r, out.width="100%", echo=FALSE, fig.cap=' (ref:foo7)'}
+```{r, out.width="100%", echo=FALSE, fig.cap=' (ref:foo8)'}
 knitr::include_graphics("images/experimental_design/fig_single_cell_vs_bulk_rnaseq_advantages_2023_biolizard.png")
 ```
 
 ### Short & Long Read Sequencing
 
-(ref:foo8) Alternative splicing and RNA technologies. Image source: [Deshpande D, et al, RNA-seq data science: From raw data to effective interpretation. Frontier Genetics. 2023](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10043755/)
+(ref:foo9) Alternative splicing and RNA technologies. Image source: [Deshpande D, et al, RNA-seq data science: From raw data to effective interpretation. Frontier Genetics. 2023](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10043755/)
 
-```{r, echo=FALSE, fig.align="center", fig.cap="(ref:foo8)", out.width="95%", out.height="70%"}
+```{r, echo=FALSE, fig.align="center", fig.cap="(ref:foo9)", out.width="95%", out.height="70%"}
 knitr::include_graphics("images/experimental_design/fig_fgene-14-997383-g002.jpg")
 ```
 
@@ -179,9 +179,9 @@ This capability for simultaneous discovery and quantification at the whole trans
 knitr::include_graphics("images/experimental_design/rnaseq_data.png")
 ```
 
-(ref:foo9) Image source: [RNA-seq](https://helixio.com/page/rna-seq-1)
+(ref:foo10) Image source: [RNA-seq](https://helixio.com/page/rna-seq-1)
 
-```{r, echo=FALSE, out.width="100%", fig.cap='(ref:foo9)'}
+```{r, echo=FALSE, out.width="100%", fig.cap='(ref:foo10)'}
 knitr::include_graphics("images/experimental_design/fig_rnaseq_uses_helixio.jpg")
 ```
 
@@ -208,16 +208,16 @@ knitr::include_graphics("images/experimental_design/fig_dge.png")
 knitr::include_graphics("https://hbctraining.github.io/Intro-to-rnaseq-hpc-O2/img/count-matrix.png")
 ```
 
-```{r, echo=FALSE, eval=FALSE, include=FALSE, out.width="100%", fig.cap="DGE analysis is usually asking if there is a signficant difference between the mean expression levels of the conditions. (ref:foo12)"}
+```{r, echo=FALSE, eval=FALSE, include=FALSE, out.width="100%", fig.cap="DGE analysis is usually asking if there is a signficant difference between the mean expression levels of the conditions. (ref:foo20)"}
 # (ref:foo20) Image source: [Differential expression analysis with DESeq2](https://hbctraining.github.io/DGE_workshop_salmon/lessons/04_DGE_DESeq2_analysis.html)
 knitr::include_graphics("images/experimental_design/fig_de_theory.png")
 ```
 
 After identifying differentially expressed genes, it is common to perform some type of pathway enrichment analysis or gene set enrichment to find molecular pathways or biologically processes that these genes are involved with. This can allow the researcher to identify trends that might be hard to notice when looking at individual genes.
 
-(ref:foo10) Image source: [Biomedical Knowledge Mining using GOSemSim and clusterProfiler](https://yulab-smu.top/biomedical-knowledge-mining-book/enrichplot.html)
+(ref:foo11) Image source: [Biomedical Knowledge Mining using GOSemSim and clusterProfiler](https://yulab-smu.top/biomedical-knowledge-mining-book/enrichplot.html)
 
-```{r, echo=FALSE, out.width="100%", fig.cap="Dotplots of the results from overrepresentation anaylsis (ORA) and gene set enrichment analysis (GSEA). (ref:foo10)"}
+```{r, echo=FALSE, out.width="100%", fig.cap="Dotplots of the results from overrepresentation anaylsis (ORA) and gene set enrichment analysis (GSEA). (ref:foo11)"}
 knitr::include_graphics("images/experimental_design/fig-Dotplotcap-1_enrichplot.png")
 ```
 
@@ -229,9 +229,9 @@ knitr::include_graphics("images/experimental_design/fig_dif_splice_usage.png")
 
 Additionally, we can look at whether transcript levels are changing between two conditions, regardless of the gene of origin. This is known as differential transcript expression.
 
-(ref:foo11) Image source: [Froussios K, et al, Relative Abundance of Transcripts (RATs): Identifying differential isoform abundance from RNA-seq. F1000Research. 2019](https://pmc.ncbi.nlm.nih.gov/articles/PMC6426083/)
+(ref:foo12) Image source: [Froussios K, et al, Relative Abundance of Transcripts (RATs): Identifying differential isoform abundance from RNA-seq. F1000Research. 2019](https://pmc.ncbi.nlm.nih.gov/articles/PMC6426083/)
 
-```{r, echo=FALSE, fig.align="center", fig.cap="The types of differential expression analysis. (ref:foo11)", out.width="100%"}
+```{r, echo=FALSE, fig.align="center", fig.cap="The types of differential expression analysis. (ref:foo12)", out.width="100%"}
 knitr::include_graphics("images/experimental_design/fig_f1000research-8-19594-g0000.jpg")
 ```
 
@@ -239,9 +239,9 @@ If interested in transcript changes, the complexity of the analyses can be deter
 
 Long read sequencing can be more suited for isoform/transcript level analyses than short read sequencing as there is less or no ambiguity to which isofrom a read comes from, if the entire transcript has been sequenced.
 
-(ref:foo12) Short reads can be ambigious as to which isoform they belong to. Long reads have less uncertainty. Image source: [Improving gene isoform quantification with miniQuant, 2025](https://www.nature.com/articles/s41587-025-02633-9)
+(ref:foo13) Short reads can be ambigious as to which isoform they belong to. Long reads have less uncertainty. Image source: [Improving gene isoform quantification with miniQuant, 2025](https://www.nature.com/articles/s41587-025-02633-9)
 
-```{r, echo=FALSE, out.width="100%",fig.cap='(ref:foo12)'}
+```{r, echo=FALSE, out.width="100%",fig.cap='(ref:foo13)'}
 knitr::include_graphics("images/experimental_design/fig_41587_2025_2633_Fig1_HTML.png")
 ```
 
@@ -259,9 +259,9 @@ A combination of long read sequencing & short read sequencing is best suited to 
 
 A commonly used analogy when describing assembly is to imagine the genome/transcriptome as a puzzle that needs to be put back together. The smaller the pieces, the more difficult the puzzle. A puzzle made of larger pieces is much easier to put back together and reconstruct the original RNA sequence.
 
-(ref:foo13) Strategies for reconstructing transcripts from RNA-Seq reads. Image source: [Advancing RNAseq Analysis (2010)](https://www.nature.com/articles/nbt0510-421)
+(ref:foo14) Strategies for reconstructing transcripts from RNA-Seq reads. Image source: [Advancing RNAseq Analysis (2010)](https://www.nature.com/articles/nbt0510-421)
 
-```{r, echo=FALSE, out.width="100%", fig.cap='(ref:foo13)'}
+```{r, echo=FALSE, out.width="100%", fig.cap='(ref:foo14)'}
 knitr::include_graphics("images/experimental_design/fig_advancing_rnaseq_analysis.png")
 ```
 
