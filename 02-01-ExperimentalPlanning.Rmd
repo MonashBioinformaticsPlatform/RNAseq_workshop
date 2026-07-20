@@ -59,11 +59,6 @@ knitr::include_graphics("images/experimental_design/fig_illumina_sequencing.png"
 The first step of planning an RNAseq experiment is asking whether RNAseq will answer the intended research question and whether it should be performed. Sequencing experiments are not cheap and a lot of time and money can be saved by ensuring that the sequencing experiment performed is suited to answering the research question at hand. There is a huge diversity in what RNA-seq can achieve due to the number of different protocols that have been developed and published. Therefore having a clear experimental goal will help in selecting an appropriate protocol that will best answer the research question as well as a good experimental design that will allow you to get the statistical power to answer that question.
 
 
-
-```{r, echo=FALSE, out.width="90%", fig.cap="This poster dates to 2015 and shows the diversity of RNAseq protocols developed by Illumina. In the decade since, these protocols have greatly increased in number. Image source: [Illumina: For All You Seq (RNA)](https://www.illumina.com/content/dam/illumina-marketing/documents/applications/ngs-library-prep/for-all-you-seek-rna.pdf)"}
-knitr::include_graphics("images/experimental_design/for-all-you-seq-rna.pdf")
-```
-
 There are some main considerations to planning an RNAseq experiment:
 
 1.  What is the research goal?
