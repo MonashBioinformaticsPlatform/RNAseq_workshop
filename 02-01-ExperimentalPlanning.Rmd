@@ -112,9 +112,9 @@ These descriptions of RNAseq are not mutually exclusive and are in fact used in 
 ```
 
 +-----------------------------------------+-----------------------------------------------------------------------+---------------------------------------------------------+------------------------------------------+
-| **Biological material**\                    | Entire tissue: Bulk RNAseq                                            | Individual cells: Single cell RNAseq                    |                                          |
+| **Biological material** \                    | Entire tissue: Bulk RNAseq                                            | Individual cells: Single cell RNAseq                    |                                          |
 +-----------------------------------------+-----------------------------------------------------------------------+---------------------------------------------------------+------------------------------------------+
-| **RNA tissue source**\                      | Fresh                                                                 | Frozen                                                  | FFPE (Formalin-fixed, paraffin-embedded) |
+| **RNA tissue source** \                      | Fresh                                                                 | Frozen                                                  | FFPE (Formalin-fixed, paraffin-embedded) |
 +-----------------------------------------+-----------------------------------------------------------------------+---------------------------------------------------------+------------------------------------------+
 | **RNA species sequenced**                   | All RNA species captured: total RNAseq                                | mRNA only: mRNAseq                                      | small RNA: small RNAseq                  |
 +-----------------------------------------+-----------------------------------------------------------------------+---------------------------------------------------------+------------------------------------------+
@@ -124,7 +124,7 @@ These descriptions of RNAseq are not mutually exclusive and are in fact used in 
 +-----------------------------------------+-----------------------------------------------------------------------+---------------------------------------------------------+------------------------------------------+
 | **Library Strandedness**                    | Original strand information not preserved: nonstranded library        | Original strand information preserved: Stranded library |                                          |
 +-----------------------------------------+-----------------------------------------------------------------------+---------------------------------------------------------+------------------------------------------+
-| **Which end of the fragment is sequenced**\ | 1 end: Single end sequencing                                          | Both ends: Paired end sequencing                        |                                          |
+| **Which end of the fragment is sequenced** \ | 1 end: Single end sequencing                                          | Both ends: Paired end sequencing                        |                                          |
 +-----------------------------------------+-----------------------------------------------------------------------+---------------------------------------------------------+------------------------------------------+
 | **Commercial platforms**                    | Illumina, BGI Genomics, PacBio, Oxford Nanopore, 10x, NanoString, etc |                                                         |                                          |
 +-----------------------------------------+-----------------------------------------------------------------------+---------------------------------------------------------+------------------------------------------+
